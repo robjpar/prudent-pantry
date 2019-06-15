@@ -1,0 +1,532 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Foundation | Welcome</title>
+    <link rel="stylesheet" href="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.min.css">
+    <link rel="stylesheet" type="text/css" href="./assets/style.css">
+
+    <style>
+
+
+/* css for nav */
+.topbar-responsive {
+  background: #2c3840;
+  padding: 1rem 1.5rem;
+}
+
+.topbar-responsive .topbar-responsive-logo {
+  color: #fefefe;
+  vertical-align: middle;
+}
+
+.topbar-responsive .menu {
+  background: #2c3840;
+}
+
+.topbar-responsive .menu li:last-of-type {
+  margin-right: 0;
+}
+
+.topbar-responsive .menu a {
+  color: #fefefe;
+  transition: color 0.15s ease-in;
+}
+
+.topbar-responsive .menu a:hover {
+  color: #c6d1d8;
+}
+
+@media screen and (max-width: 39.9375em) {
+  .topbar-responsive .menu a {
+    padding: 0.875rem 0;
+  }
+}
+
+.topbar-responsive .menu .topbar-responsive-button {
+  color: #fefefe;
+  border-color: #fefefe;
+  border-radius: 5000px;
+  transition: color 0.15s ease-in, border-color 0.15s ease-in;
+}
+
+.topbar-responsive .menu .topbar-responsive-button:hover {
+  color: #c6d1d8;
+  border-color: #c6d1d8;
+}
+
+@media screen and (max-width: 39.9375em) {
+  .topbar-responsive .menu .topbar-responsive-button {
+    width: 100%;
+    margin: 0.875rem 0;
+  }
+}
+
+@media screen and (max-width: 39.9375em) {
+  .topbar-responsive {
+    padding: 0.75rem;
+  }
+  .topbar-responsive .top-bar-title {
+    position: relative;
+    width: 100%;
+  }
+  .topbar-responsive .top-bar-title span {
+    position: absolute;
+    right: 0;
+    border: 1px solid #fefefe;
+    border-radius: 5px;
+    padding: 0.25rem 0.45rem;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+            transform: translateY(-50%);
+  }
+  .topbar-responsive .top-bar-title span .menu-icon {
+    margin-bottom: 4px;
+  }
+}
+
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes slideDown {
+  0% {
+    -webkit-transform: translateY(-100%);
+            transform: translateY(-100%);
+  }
+  100% {
+    -webkit-transform: translateY(0%);
+            transform: translateY(0%);
+  }
+}
+
+@keyframes slideDown {
+  0% {
+    -webkit-transform: translateY(-100%);
+            transform: translateY(-100%);
+  }
+  100% {
+    -webkit-transform: translateY(0%);
+            transform: translateY(0%);
+  }
+}
+
+@media screen and (max-width: 39.9375em) {
+  .topbar-responsive-links {
+    -webkit-animation-fill-mode: both;
+            animation-fill-mode: both;
+    -webkit-animation-duration: 0.5s;
+            animation-duration: 0.5s;
+    width: 100%;
+    -webkit-animation: fadeIn 1s ease-in;
+            animation: fadeIn 1s ease-in;
+  }
+}
+
+/* css for add item */
+
+/* css for main body */
+.centering {
+    text-align: center;
+
+}
+.middling {
+    background: lightgrey;
+
+}
+
+.bordering {
+    border: 1px solid grey;
+}
+
+.itemrow {
+    padding: 10px;
+}
+
+.scrolling {
+    height: 250px;
+    overflow: scroll;
+}
+
+.imaging {
+  height: 80px;
+  width: 80px;
+}
+
+
+        
+    </style>
+
+</head>
+
+<body>
+ <!-- side nav - mobile collapsable -->
+<nav class="top-bar topbar-responsive">
+  <div class="top-bar-title">
+    <span data-responsive-toggle="topbar-responsive" data-hide-for="medium">
+      <button class="menu-icon" type="button" data-toggle></button>
+    </span>
+    <a class="topbar-responsive-logo" href="#"><strong>Prudent Pantry</strong></a>
+  </div>
+  <div id="topbar-responsive" class="topbar-responsive-links">
+    <div class="top-bar-right">
+      <ul class="menu simple vertical medium-horizontal">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Login</a></li>
+        <li><a href="#">Stock</a></li>
+        <li><a href="#">Recipes</a></li>
+        <li><a href="#">Shop</a></li>
+        
+        <li>
+          <button type="button" class="button hollow topbar-responsive-button">Search</button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="grix-x grid-padding-x centering">
+
+<!-- add item section -->  
+<form class="input-group groupInput">
+    <div class="row">
+      <div class="columns medium-3">
+        <span class="input-group-label">Name:</span>
+        <input class="input-group-field nameInput" type="text">
+      </div>
+      <div class="columns medium-2">
+        <span class="input-group-label">Unit:</span>
+        <input class="input-group-field unitInput" type="text">
+      </div>
+      <div class="columns medium-2">
+        <span class="input-group-label">Qty:</span>
+        <input class="input-group-field qtyInput" type="number">
+      </div>
+      <div class="columns medium-3">
+        <span class="input-group-label">Expires:</span>
+        <input class="input-group-field expiresInput" type="date">
+      </div>
+      <div class="input-group-button">
+          <input type="submit" class="button buttonInput" value="Submit">
+      </div>
+    </div>
+    <div class="row">
+      <fieldset class="large-7 card">
+            <legend>Add food item to:</legend>
+            <input type="radio" name="pokemon" value="Red" id="pokemonRed" required><label for="pokemonRed">pantry</label>
+            <input type="radio" name="pokemon" value="Blue" id="pokemonBlue"><label for="pokemonBlue">fridge</label>
+            <input type="radio" name="pokemon" value="Yellow" id="pokemonYellow"><label for="pokemonYellow">freezer</label>
+          </fieldset>
+    </div> 
+</form>
+
+
+
+<hr>
+
+<div class="main-container">
+    <!-- whole document row -->
+    <div class="row">
+        <!-- main left nav column -->
+        <div class="columns medium-1 centering">
+         <span>&nbsp;</span>
+
+        </div>
+        <!-- main app column -->
+        <div class="columns medium-10 centering">
+            <h5>inventory</h5>
+        
+<!-- inventory container -->
+<div class="container scrolling middling">
+
+<!-- inventory display item -->
+
+<div class="row itemrow bordering">
+    <div class="columns medium-2 bordering">
+        <span>milk</span>
+    </div>
+    <div class="columns medium-2 bordering">
+        <span>expires:</span>
+    </div>
+    <div class="columns medium-1 bordering">
+        <span>qty:</span>
+    </div>
+    <div class="columns medium-1 bordering">
+        <span>unit:</span>
+    </div>
+    <div class="columns medium-2 bordering">
+        <span>storeplace: fridge</span>
+    </div>
+    <div class="columns medium-2 bordering">
+        <span>date in:</span>
+    </div>
+    <div class="columns medium-1 bordering">
+        <button>X</button>
+    </div>
+    <div class="columns medium-1 bordering">
+        <input id="checkbox12" type="checkbox"><label for="checkbox12">use</label>
+    </div>
+</div>
+
+<!-- inventory display item copy 1 -->
+
+<div class="row itemrow bordering">
+    <div class="columns medium-2 bordering">
+        <span>milk</span>
+    </div>
+    <div class="columns medium-2 bordering">
+        <span>exspanires:</span>
+    </div>
+    <div class="columns medium-1 bordering">
+        <span>qty:</span>
+    </div>
+    <div class="columns medium-1 bordering">
+        <span>unit:</span>
+    </div>
+    <div class="columns medium-2 bordering">
+        <span>storespanlace: fridge</span>
+    </div>
+    <div class="columns medium-2 bordering">
+        <span>date in:</span>
+    </div>
+    <div class="columns medium-1 bordering">
+        <button>X</button>
+    </div>
+    <div class="columns medium-1 bordering">
+        <input id="checkbox12" type="checkbox"><label for="checkbox12">use</label>
+    </div>
+</div>
+
+<!-- inventory display item copy 2-->
+
+<div class="row itemrow bordering">
+    <div class="columns medium-2 bordering">
+        <span>milk</span>
+    </div>
+    <div class="columns medium-2 bordering">
+        <span>expires:</span>
+    </div>
+    <div class="columns medium-1 bordering">
+        <span>qty:</span>
+    </div>
+    <div class="columns medium-1 bordering">
+        <span>unit:</span>
+    </div>
+    <div class="columns medium-2 bordering">
+        <span>storeplace: fridge</span>
+    </div>
+    <div class="columns medium-2 bordering">
+        <span>date in:</span>
+    </div>
+    <div class="columns medium-1 bordering">
+        <button>X</button>
+    </div>
+    <div class="columns medium-1 bordering">
+        <input id="checkbox12" type="checkbox"><label for="checkbox12">use</label>
+    </div>
+</div>
+
+<!-- inventory display item copy 3-->
+
+<div class="row itemrow bordering">
+    <div class="columns medium-2 bordering">
+        <span>milk</span>
+    </div>
+    <div class="columns medium-2 bordering">
+        <span>expires:</span>
+    </div>
+    <div class="columns medium-1 bordering">
+        <span>qty:</span>
+    </div>
+    <div class="columns medium-1 bordering">
+        <span>unit:</span>
+    </div>
+    <div class="columns medium-2 bordering">
+        <span>storeplace: fridge</span>
+    </div>
+    <div class="columns medium-2 bordering">
+        <span>date in:</span>
+    </div>
+    <div class="columns medium-1 bordering">
+        <button>X</button>
+    </div>
+    <div class="columns medium-1 bordering">
+        <input id="checkbox12" type="checkbox"><label for="checkbox12">use</label>
+    </div>
+</div>
+
+<!-- end of inventory container -->
+</div>
+
+<!-- search recipe button based on inventory selections -->
+<input type="submit" class="button searchRecipes" value="Search Recipies">
+
+<hr>
+    <h5>Recipes</h5>
+
+<!-- display recipes containersection -->
+
+<div class="container scrolling middling bordering">
+
+<!-- recipe row -->
+<div class="row itemrow bordering">
+    <div class="columns medium-2 bordering">
+        <img src="" class="imaging">
+    </div>
+    <div class="columns medium-2 bordering">
+        <span>qty:</span>
+    </div>
+    <div class="columns medium-1 bordering">
+        <span>unit</span>
+    </div>
+    <div class="columns medium-1 bordering">
+        <span>title:</span>
+    </div>
+    <div class="columns medium-2 bordering">
+        <span>energy</span>
+    </div>
+    <div class="columns medium-2 bordering">
+        <span>nutrients</span><br>
+          <span>protein:</span><br>
+          <span>fat:</span><br>
+          <span>carbs:</span>
+    </div>
+    <div class="columns medium-1 bordering">
+        <button>X</button>
+    </div>
+    <div class="columns medium-1 bordering">
+        <input id="checkbox12" type="checkbox"><label for="checkbox12">use</label>
+    </div>
+</div>
+
+<!-- recipe row copy 1-->
+<div class="row itemrow bordering">
+    <div class="columns medium-2 bordering">
+        <img src="" class="imaging">
+    </div>
+    <div class="columns medium-2 bordering">
+        <span>qty:</span>
+    </div>
+    <div class="columns medium-1 bordering">
+        <span>unit</span>
+    </div>
+    <div class="columns medium-1 bordering">
+        <span>title:</span>
+    </div>
+    <div class="columns medium-2 bordering">
+        <span>energy</span>
+    </div>
+    <div class="columns medium-2 bordering">
+        <span>nutrients</span><br>
+          <span>protein:</span><br>
+          <span>fat:</span><br>
+          <span>carbs:</span>
+    </div>
+    <div class="columns medium-1 bordering">
+        <button>X</button>
+    </div>
+    <div class="columns medium-1 bordering">
+        <input id="checkbox12" type="checkbox"><label for="checkbox12">use</label>
+    </div>
+</div>
+
+<!-- recipe row copy 2-->
+<div class="row itemrow bordering">
+    <div class="columns medium-2 bordering">
+        <img src="" class="imaging">
+    </div>
+    <div class="columns medium-2 bordering">
+        <span>qty:</span>
+    </div>
+    <div class="columns medium-1 bordering">
+        <span>unit</span>
+    </div>
+    <div class="columns medium-1 bordering">
+        <span>title:</span>
+    </div>
+    <div class="columns medium-2 bordering">
+        <span>energy</span>
+    </div>
+    <div class="columns medium-2 bordering">
+        <span>nutrients</span><br>
+          <span>protein:</span><br>
+          <span>fat:</span><br>
+          <span>carbs:</span>
+    </div>
+    <div class="columns medium-1 bordering">
+        <button>X</button>
+    </div>
+    <div class="columns medium-1 bordering">
+        <input id="checkbox12" type="checkbox"><label for="checkbox12">use</label>
+    </div>
+</div>
+
+<!-- recipe row copy 3-->
+<div class="row itemrow bordering">
+    <div class="columns medium-2 bordering">
+        <img src="" class="imaging">
+    </div>
+    <div class="columns medium-2 bordering">
+        <span>qty:</span>
+    </div>
+    <div class="columns medium-1 bordering">
+        <span>unit</span>
+    </div>
+    <div class="columns medium-1 bordering">
+        <span>title:</span>
+    </div>
+    <div class="columns medium-2 bordering">
+        <span>energy</span>
+    </div>
+    <div class="columns medium-2 bordering">
+        <span>nutrients</span><br>
+          <span>protein:</span><br>
+          <span>fat:</span><br>
+          <span>carbs:</span>
+    </div>
+    <div class="columns medium-1 bordering">
+        <button>X</button>
+    </div>
+    <div class="columns medium-1 bordering">
+        <input id="checkbox12" type="checkbox"><label for="checkbox12">use</label>
+    </div>
+</div>
+
+
+<!-- end display recipes container -->
+</div>
+
+<br>
+
+        </div>
+        <!-- main right margin column -->
+        <div class="columns medium-1 centering">
+        </div>
+    </div>
+</div>
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.js"></script>
+    <script>
+        $(document).foundation();
+    </script>
+</body>
+
+</html>
