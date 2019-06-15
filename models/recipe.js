@@ -10,5 +10,5 @@ const recipeSchema = new Schema({
   dateIn: { type: Date, default: Date.now }
 });
 
-const Inventory = mongoose.model("Inventory", inventorySchema);
-module.exports = Inventory;
+const Recipe = mongoose.model("Recipe", recipeSchema);
+module.exports = Recipe;
