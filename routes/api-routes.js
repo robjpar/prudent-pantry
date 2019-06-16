@@ -101,4 +101,18 @@ module.exports = function(app) {
         res.json(err);
       });
   });
+
+  // Delete an inventory item
+  app.delete('/api/inventory/:item_id', function(req, res) {
+    db.inventory
+      .deleteOne({
+        _id: req.params.item_id
+      })
+      .then(function(item) {
+        res.json(item);
+      })
+      .catch(function(err) {
+        res.json(err);
+      });
+  });
 };
