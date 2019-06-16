@@ -9,22 +9,22 @@ return (
 
     <div className="row itemrow bordering">
     <div className="columns medium-2 bordering">
-        <span>milk</span>
+        <span>{props.name} </span>
     </div>
     <div className="columns medium-2 bordering">
-        <span>expires:</span>
+        <span>expires: {props.expireDate} </span>
     </div>
     <div className="columns medium-1 bordering">
-        <span>qty:</span>
+        <span>qty: {props.qty} </span>
     </div>
     <div className="columns medium-1 bordering">
-        <span>unit:</span>
+        <span>unit: {props.unit} </span>
     </div>
     <div className="columns medium-2 bordering">
         <span>storeplace: fridge</span>
     </div>
     <div className="columns medium-2 bordering">
-        <span>date in:</span>
+        <span>date in: yesterday</span>
     </div>
     <div className="columns medium-1 bordering">
         <button>X</button>

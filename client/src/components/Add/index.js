@@ -11,22 +11,38 @@ return (
         <div className="row">
           <div className="columns medium-3">
             <span className="input-group-label">Name:</span>
-            <input className="input-group-field nameInput" type="text"/>
+            <input value={this.state.name}
+                onChange={this.handleInputChange}
+                name="name"
+                placeholder="(ex. Milk)"className="input-group-field nameInput" type="text"/>
           </div>
           <div className="columns medium-2">
             <span className="input-group-label">Unit:</span>
-            <input className="input-group-field unitInput" type="text"/>
+            <input 
+            value={this.state.unit}
+            onChange={this.handleInputChange}
+            name=""
+            placeholder="(ex. Gallon)"className="input-group-field unitInput" type="text"/>
           </div>
           <div className="columns medium-2">
             <span className="input-group-label">Qty:</span>
-            <input className="input-group-field qtyInput" type="number"/>
+            <input value={this.state.qty}
+                onChange={this.handleInputChange}
+                name="qty"
+                className="input-group-field qtyInput" type="number"/>
           </div>
           <div className="columns medium-3">
             <span className="input-group-label">Expires:</span>
-            <input className="input-group-field expiresInput" type="date"/>
+            <input 
+            value={this.state.expireDate}
+            onChange={this.handleInputChange}
+            name="expireDate"
+            placeholder="(mm/dd/yy) "className="input-group-field expiresInput" type="date"/>
           </div>
           <div className="input-group-button">
-              <input type="submit" className="button buttonInput" value="Submit"/>
+              <input 
+              disabled={!(this.state.name && this.state.unit && this.state.qty && this.state.expireDate)}
+              onClick={this.handleFormSubmit} type="submit" className="button buttonInput" value="Submit"/>
           </div>
         </div>
         <div className="row">
