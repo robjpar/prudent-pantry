@@ -48,9 +48,9 @@ return (
         <div className="row">
           <fieldset className="large-7 card">
                 <legend>Add food item to:</legend>
-                <input type="radio" name="pokemon" value="Red" id="pokemonRed" required/><label for="pokemonRed">pantry</label>
-                <input type="radio" name="pokemon" value="Blue" id="pokemonBlue"/><label for="pokemonBlue">fridge</label>
-                <input type="radio" name="pokemon" value="Yellow" id="pokemonYellow"/><label for="pokemonYellow">freezer</label>
+                <input type="radio" name="pokemon" value="Red" id="pokemonRed" required/><label htmlFor="pokemonRed">pantry</label>
+                <input type="radio" name="pokemon" value="Blue" id="pokemonBlue"/><label htmlFor="pokemonBlue">fridge</label>
+                <input type="radio" name="pokemon" value="Yellow" id="pokemonYellow"/><label htmlFor="pokemonYellow">freezer</label>
               </fieldset>
         </div> 
     </form>
