@@ -75,6 +75,31 @@ class Foods extends Component {
     }
   };
 
+  handleFormSubmit = event => {
+    event.preventDefault();
+    if (this.state.name && this.state.expireDate && this.state.qty && this.state.unit && this.state.storePlace) {
+      API.savefood({
+        
+            name: this.state.name,
+            expireDate: this.state.expireDate,
+            qty: this.state.qty,
+            unit: this.state.unit,
+            storePlace: this.state.storePlace,
+            dateIn: ""
+      })
+        .then(res => this.loadfoods())
+        .catch(err => console.log(err));
+    }
+  };
+
+  handleClick = event => {
+    event.preventDefault();
+      API.getRecipes(this.state.RecipeSearch)
+        
+        .then(res => this.setState({ recipes: res.data }))
+      }
+  };
+
 render() {
   return (
    <Container>

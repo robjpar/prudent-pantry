@@ -10,8 +10,9 @@ return (
 <div className="container scrolling middling">
 {this.state.recipes.map(recipe => {
   <InvItem
+
   />
-}
+})}
 </div>
 
 <input type="submit" class="button centering searchRecipes" value="Search Recipies"/>
@@ -20,10 +21,7 @@ return (
 </div>
 
 
-
-);
-
-}
+)}
 
 export default InvAll;
 
