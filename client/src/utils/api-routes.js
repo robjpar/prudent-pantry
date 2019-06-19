@@ -22,6 +22,10 @@ export default {
   // Saves a food to the database
   savefood: function(foodData) {
     return axios.post("/api/foods", foodData);
+  },
+
+  getRecipes: function(query) {
+    return axios.get(BASEURL + query + APPID + APIKEY);
   }
 };
 
