@@ -2,10 +2,8 @@ import React from 'react';
 import './style.css';
 import { Container, Row, Col } from "../Grid";
 
-function RecipeItem (thumbnail = "https://placehold.it/300x300",
-title,
-ingredients,
-href) {
+function RecipeItem ()
+{
     
 
 return (
