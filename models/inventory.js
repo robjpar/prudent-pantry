@@ -9,6 +9,9 @@ const inventorySchema = new Schema({
   storePlace:[
     {type: Schema.Types.ObjectId, ref: 'Storages'}
   ],
+  userId:[
+    {type: Schema.Types.ObjectId, ref: 'Users'}
+  ],
   dateIn: { type: Date, default: Date.now }
 });
 
