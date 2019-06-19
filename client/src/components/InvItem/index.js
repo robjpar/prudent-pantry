@@ -29,8 +29,8 @@ return (
     <div className="columns medium-1 bordering">
         <button>X</button>
     </div>
-    <div class="columns medium-1 bordering">
-        <input id="checkbox12" type="checkbox"/><label for="checkbox12">use</label>
+    <div className="columns medium-1 bordering">
+        <input id="checkbox12" type="checkbox"/><label htmlFor="checkbox12">use</label>
     </div>
 </div>   
 
