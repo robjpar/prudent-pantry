@@ -12,7 +12,7 @@ return (
   />
 </div>
 
-<input type="submit" class="button centering searchRecipes" value="Search Recipies"/>
+<input type="submit" className="button centering searchRecipes" value="Search Recipies"/>
 
 <hr/>
 </div>
