@@ -8,9 +8,9 @@ function RecipeAll (props) {
 
 return (
     <div className="container scrolling middling bordering">
-        
+
     <RecipeItem 
-    
+        
     
     />
 

@@ -9,13 +9,12 @@ return (
 <div>
 <div className="container scrolling middling">
 {this.state.recipes.map(recipe => {
-  <InvItem
-
-  />
-})}
+ return ( <InvItem
+ />
+)})}
 </div>
 
-<input type="submit" class="button centering searchRecipes" value="Search Recipies"/>
+<input onClick={this.handleClick} type="submit" class="button centering searchRecipes" value="Search Recipies"/>
 
 <hr/>
 </div>

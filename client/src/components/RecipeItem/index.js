@@ -1,6 +1,6 @@
 import React from 'react';
 import './style.css';
-import { Container, Row, Col } from "../Grid";
+// import { Container, Row, Col } from "../Grid";
 
 function RecipeItem ()
 {
