@@ -9,6 +9,7 @@ import RecipeAll from "./components/RecipeAll";
 import InvItem from "./components/InvItem";
 import API from "./utils/api-routes.js";
 import RecipeItem from "./components/RecipeItem";
+import DeleteBtn from "./components/DeleteBtn";
 
 class Foods extends Component {
   // Setting our component's initial state
@@ -20,14 +21,14 @@ class Foods extends Component {
     qty: '',
     unit: '',
     storePlace: "",
-
+    dateIn: ''
 
   };
 
   // When the component mounts, load all foods and save them to this.state.foods
-  // componentDidMount() {
-  //   this.loadFoods();
-  // }
+   componentDidMount() {
+     this.loadFoods();
+   }
 
   // loadRecipes = () => {
   //   API.getRecipes().then(res =>
@@ -51,10 +52,12 @@ class Foods extends Component {
   };
 
   // Deletes a food from the database with a given id, then reloads foods from the db
-  deletefood = id => {
-    API.deletefood(id)
-      .then(res => this.loadfoods())
+  deleteFood = id => {
+    console.log("delete");
+    API.deleteFood(id)
+      .then(res => this.loadFoods())
       .catch(err => console.log(err));
+      
   };
 
   // Handles updating component state when the user types into the input field
@@ -65,34 +68,9 @@ class Foods extends Component {
     });
   };
 
-  // When the form is submitted, use the API.savefood method to save the food data
-  // Then reload foods from the database
-  // handleFormSubmit = event => {
-  //   event.preventDefault();
-  //   if (this.state.name && this.state.expireDate && this.state.qty && this.state.unit && this.state.storePlace) {
-  //     API.savefood({
-
-  //           name: this.state.name,
-  //           expireDate: this.state.expireDate,
-  //           qty: this.state.qty,
-  //           unit: this.state.unit,
-  //           storePlace: this.state.storePlace,
-  //           dateIn: ""
-  //     })
-  //       .then(res => this.loadfoods())
-  //       .catch(err => console.log(err));
-  //   }
-  // };
-
   handleFormSubmit = event => {
     event.preventDefault();
-    // if (
-    //   this.state.name &&
-    //   this.state.expireDate &&
-    //   this.state.qty &&
-    //   this.state.unit &&
-    //   this.state.storePlace
-    // ) {
+
       API.saveItem({
         name: this.state.name,
         expireDate: this.state.expireDate,
@@ -123,6 +101,7 @@ class Foods extends Component {
         <Add
           handleInputChange={this.handleInputChange}
           handleFormSubmit={this.handleFormSubmit}
+          
         />
         <div className="main-container">
           <div className="row">
@@ -141,23 +120,32 @@ class Foods extends Component {
                       name={item.name}
                       qty={item.qty["$numberDecimal"]}
                       unit={item.unit}
-                      expireDate={item.expireDate}
+                      expireDate={new Date(item.expireDate).toLocaleDateString()}
                       storePlace={item.storePlace[0].name}
-                    />
+                      dateIn={new Date(item.dateIn).toLocaleDateString()}
+
+                      deleteFood={this.deleteFood}
+                      >
+                        <DeleteBtn onClick={() => this.deleteFood(item._id)} />
+                     
+
+                      </InvItem>
+                      
+                     
                   );
                 })}
               </InvAll>
-              />
-              {/* <hr />
+              
+              <hr />
               <h5>Recipes</h5>
-              <RecipeAll>
+              {/* <RecipeAll>
                 {this.state.recipes.map(item => {
                   return (
                     <RecipeItem 
                       
                   )
-                })} */}
-              <br />
+                })}
+              <br /> */}
             </div>
             <div className="columns medium-1 centering" />
           </div>

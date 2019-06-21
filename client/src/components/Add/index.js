@@ -47,9 +47,9 @@ return (
         <div className="row">
           <fieldset className="large-7 card">
                 <legend>Add food item to:</legend>
-                <input type="radio" name="pokemon" value="Red" id="pokemonRed" required/><label htmlFor="pokemonRed">pantry</label>
-                <input type="radio" name="pokemon" value="Blue" id="pokemonBlue"/><label htmlFor="pokemonBlue">fridge</label>
-                <input type="radio" name="pokemon" value="Yellow" id="pokemonYellow"/><label htmlFor="pokemonYellow">freezer</label>
+                <input type="radio" onChange={props.handleInputChange} name="storePlace" value="pantry" id="pokemonRed" required/><label htmlFor="pokemonRed">pantry</label>
+                <input type="radio" onChange={props.handleInputChange} name="storePlace" value="fridge" id="pokemonBlue"/><label htmlFor="pokemonBlue">fridge</label>
+                <input type="radio" onChange={props.handleInputChange} name="storePlace" value="freezer" id="pokemonYellow"/><label htmlFor="pokemonYellow">freezer</label>
               </fieldset>
         </div> 
     </form>

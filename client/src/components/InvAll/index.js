@@ -1,18 +1,21 @@
 import React from "react";
 import "./style.css";
-import InvItem from "../InvItem";
 
-function InvAll() {
+
+export default function InvAll({children}) {
   return (
     <div>
-      <div className="container scrolling middling">
-        <p></p>
-      </div>
+    <ul className="list">
+    
 
+      <div className="container scrolling middling">
+        {children}
+      </div>
+      </ul>
       <input
         type="submit"
         className="button centering searchRecipes"
-        value="Search Recipies"
+        value="Search Recipes"
       />
 
       <hr />
@@ -20,4 +23,3 @@ function InvAll() {
   );
 }
 
-export default InvAll;
