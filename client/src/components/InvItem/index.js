@@ -25,7 +25,7 @@ function InvItem(props) {
           <span>date in: {props.dateIn}</span>
         </div>
         <div className="columns medium-1 bordering">
-         <DeleteBtn {...props}/>
+         <DeleteBtn onClick={() => props.deleteFood(props.id)}/>
         </div>
         <div className="columns medium-1 bordering">
           <input id="checkbox12" type="checkbox" />

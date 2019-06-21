@@ -16,19 +16,18 @@ class Foods extends Component {
   state = {
     inventory: [],
     recipes: [],
-    name: '',
-    expireDate: '',
-    qty: '',
-    unit: '',
+    name: "",
+    expireDate: "",
+    qty: "",
+    unit: "",
     storePlace: "",
-    dateIn: ''
-
+    dateIn: ""
   };
 
   // When the component mounts, load all foods and save them to this.state.foods
-   componentDidMount() {
-     this.loadFoods();
-   }
+  componentDidMount() {
+    this.loadFoods();
+  }
 
   // loadRecipes = () => {
   //   API.getRecipes().then(res =>
@@ -42,11 +41,9 @@ class Foods extends Component {
   loadFoods = () => {
     API.getInventory()
       .then(res => {
-        
         this.setState({
           inventory: res.data
-        
-        })
+        });
       })
       .catch(err => console.log(err));
   };
@@ -57,7 +54,6 @@ class Foods extends Component {
     API.deleteFood(id)
       .then(res => this.loadFoods())
       .catch(err => console.log(err));
-      
   };
 
   // Handles updating component state when the user types into the input field
@@ -71,17 +67,16 @@ class Foods extends Component {
   handleFormSubmit = event => {
     event.preventDefault();
 
-      API.saveItem({
-        name: this.state.name,
-        expireDate: this.state.expireDate,
-        qty: this.state.qty,
-        unit: this.state.unit,
-        storePlace: [{name: this.state.storePlace}],
-        dateIn: new Date()
-      }
-      )
-        .then(res => this.loadFoods())
-        .catch(err => console.log(err));
+    API.saveItem({
+      name: this.state.name,
+      expireDate: this.state.expireDate,
+      qty: this.state.qty,
+      unit: this.state.unit,
+      storePlace: [{ name: this.state.storePlace }],
+      dateIn: new Date()
+    })
+      .then(res => this.loadFoods())
+      .catch(err => console.log(err));
     //}
   };
 
@@ -90,7 +85,6 @@ class Foods extends Component {
     console.log("click");
     API.getRecipes(this.state.RecipeSearch).then(res =>
       this.setState({ recipes: res.data })
-     
     );
   };
 
@@ -101,7 +95,6 @@ class Foods extends Component {
         <Add
           handleInputChange={this.handleInputChange}
           handleFormSubmit={this.handleFormSubmit}
-          
         />
         <div className="main-container">
           <div className="row">
@@ -120,22 +113,19 @@ class Foods extends Component {
                       name={item.name}
                       qty={item.qty["$numberDecimal"]}
                       unit={item.unit}
-                      expireDate={new Date(item.expireDate).toLocaleDateString()}
+                      expireDate={new Date(
+                        item.expireDate
+                      ).toLocaleDateString()}
                       storePlace={item.storePlace[0].name}
                       dateIn={new Date(item.dateIn).toLocaleDateString()}
-
                       deleteFood={this.deleteFood}
-                      >
-                        <DeleteBtn onClick={() => this.deleteFood(item._id)} />
-                     
-
-                      </InvItem>
-                      
-                     
+                    >
+                      {/* <DeleteBtn onClick={() => this.deleteFood(item._id)} /> */}
+                    </InvItem>
                   );
                 })}
               </InvAll>
-              
+
               <hr />
               <h5>Recipes</h5>
               {/* <RecipeAll>
