@@ -8,38 +8,45 @@ import InvAll from "./components/InvAll";
 import RecipeAll from "./components/RecipeAll";
 import InvItem from "./components/InvItem";
 import API from "./utils/api-routes.js";
+import RecipeItem from "./components/RecipeItem";
 
 class Foods extends Component {
   // Setting our component's initial state
   state = {
-    foods: [],
-    name: "",
-    expireDate: "",
-    qty: "",
-    unit: "",
+    inventory: [],
+    recipes: [],
+    name: '',
+    expireDate: '',
+    qty: '',
+    unit: '',
     storePlace: "",
-    dateIn: ""
+
+
   };
 
   // When the component mounts, load all foods and save them to this.state.foods
-  componentDidMount() {
-    this.loadFoods();
-  }
+  // componentDidMount() {
+  //   this.loadFoods();
+  // }
+
+  // loadRecipes = () => {
+  //   API.getRecipes().then(res =>
+  //     this.setState({
+  //       recipes: res.data
+  //     })
+  //   );
+  // };
 
   // Loads all foods  and sets them to this.state.foodss
   loadFoods = () => {
-    API.getFoods()
-      .then(res =>
+    API.getInventory()
+      .then(res => {
+        
         this.setState({
-          foods: res.data,
-          name: this.state.name,
-          expireDate: this.state.expireDate,
-          qty: this.state.qty,
-          unit: this.state.unit,
-          storePlace: this.state.storePlace,
-          dateIn: ""
+          inventory: res.data
+        
         })
-      )
+      })
       .catch(err => console.log(err));
   };
 
@@ -79,37 +86,44 @@ class Foods extends Component {
 
   handleFormSubmit = event => {
     event.preventDefault();
-    if (
-      this.state.name &&
-      this.state.expireDate &&
-      this.state.qty &&
-      this.state.unit &&
-      this.state.storePlace
-    ) {
-      API.savefood({
+    // if (
+    //   this.state.name &&
+    //   this.state.expireDate &&
+    //   this.state.qty &&
+    //   this.state.unit &&
+    //   this.state.storePlace
+    // ) {
+      API.saveItem({
         name: this.state.name,
         expireDate: this.state.expireDate,
         qty: this.state.qty,
         unit: this.state.unit,
-        storePlace: this.state.storePlace,
-        dateIn: ""
-      })
-        .then(res => this.loadfoods())
+        storePlace: [{name: this.state.storePlace}],
+        dateIn: new Date()
+      }
+      )
+        .then(res => this.loadFoods())
         .catch(err => console.log(err));
-    }
+    //}
   };
 
   handleClick = event => {
     event.preventDefault();
-    API.getRecipes(this.state.RecipeSearch)
-    .then(res => this.setState({ recipes: res.data }));
+    console.log("click");
+    API.getRecipes(this.state.RecipeSearch).then(res =>
+      this.setState({ recipes: res.data })
+     
+    );
   };
 
   render() {
     return (
       <Container>
         <Nav />
-        <Add />
+        <Add
+          handleInputChange={this.handleInputChange}
+          handleFormSubmit={this.handleFormSubmit}
+        />
         <div className="main-container">
           <div className="row">
             <div className="columns medium-1 centering">
@@ -119,22 +133,30 @@ class Foods extends Component {
             <div className="columns medium-10 centering">
               <h5>inventory</h5>
               <InvAll>
-                {this.state.foods.map(food => {
+                {this.state.inventory.map(item => {
                   return (
                     <InvItem
-                      key={food.name}
-                      name={food.name}
-                      qty={food.qty}
-                      unit={food.unit}
-                      expireDate={food.expireDate}
+                      key={item._id}
+                      id={item._id}
+                      name={item.name}
+                      qty={item.qty["$numberDecimal"]}
+                      unit={item.unit}
+                      expireDate={item.expireDate}
+                      storePlace={item.storePlace[0].name}
                     />
                   );
                 })}
               </InvAll>
               />
-              <hr />
+              {/* <hr />
               <h5>Recipes</h5>
-              <RecipeAll />
+              <RecipeAll>
+                {this.state.recipes.map(item => {
+                  return (
+                    <RecipeItem 
+                      
+                  )
+                })} */}
               <br />
             </div>
             <div className="columns medium-1 centering" />

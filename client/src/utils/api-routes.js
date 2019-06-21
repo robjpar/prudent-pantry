@@ -7,9 +7,9 @@ const APIKEY = "&app_key=e12daad5349940b0b60240769dd1d393";
 
 
 export default {
-  // Gets all foods
-  getfoods: function() {
-    return axios.get("/api/foods");
+  // Gets all inventory
+  getInventory: function() {
+    return axios.get("/api/inventory");
   },
   // // Gets the food with the given id
   // getfood: function(id) {
@@ -20,8 +20,10 @@ export default {
     return axios.delete("/api/foods/" + id);
   },
   // Saves a food to the database
-  savefood: function(foodData) {
-    return axios.post("/api/foods", foodData);
+  saveItem: function(itemData) {
+    console.log(itemData);
+    return axios.post("/api/inventory", itemData);
+
   },
 
   getRecipes: function(query) {
