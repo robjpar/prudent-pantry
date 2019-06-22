@@ -1,23 +1,25 @@
 import React from 'react';
 import './style.css';
+// import { Container, Row, Col } from "../Grid";
 
-function RecipeItem (props) {
-
+function RecipeItem ()
+{
+    
 
 return (
 
 <div className="row itemrow bordering">
     <div className="columns medium-2 bordering">
-        <img src="" className="imaging"/>
+        {/* <a href={this.response.data.hits[0].recipe.url}><img src={this.response.data.hits[0].recipe.image}  alt={this.response.data.hits[0].recipe.label} className="imaging"/></a> */}
     </div>
     <div className="columns medium-2 bordering">
-        <span>qty:</span>
+        <span>qty: </span>
     </div>
     <div className="columns medium-1 bordering">
-        <span>unit</span>
+        <span>unit: </span>
     </div>
     <div className="columns medium-1 bordering">
-        <span>title:</span>
+        {/* <span>title: {this.response.data.hits[0].recipe.label}</span> */}
     </div>
     <div className="columns medium-2 bordering">
         <span>energy</span>

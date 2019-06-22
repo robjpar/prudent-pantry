@@ -1,6 +1,44 @@
+// import React from "react";
+// import "./style.css";
+
+
+// function InvItem(props) {
+//   return (
+//     <li className="recipe item">
+//       <div className="row itemrow bordering">
+//         <div className="columns medium-2 bordering">
+//           <span>{props.name} </span>
+//         </div>
+//         <div className="columns medium-2 bordering">
+//           <span>expires: {props.expireDate} </span>
+//         </div>
+//         <div className="columns medium-1 bordering">
+//           <span>qty: {props.qty} </span>
+//         </div>
+//         <div className="columns medium-1 bordering">
+//           <span>unit: {props.unit} </span>
+//         </div>
+//         <div className="columns medium-2 bordering">
+//           <span>storeplace: {props.storePlace}</span>
+//         </div>
+//         <div className="columns medium-2 bordering">
+//           <span>date in: {props.dateIn}</span>
+//         </div>
+//         <div className="columns medium-1 bordering">
+//          <DeleteBtn onClick={() => props.deleteFood(props.id)}/>
+//         </div>
+//         <div className="columns medium-1 bordering">
+//           <input id="checkbox12" type="checkbox" />
+//           <label htmlFor="checkbox12">use</label>
+//         </div>
+//       </div>
+//     </li>
+//   );
+// }
 import React from 'react';
 import './style.css';
 import { Switch,Sizes } from 'react-foundation';
+import DeleteBtn from "../DeleteBtn"
 
 function InvItem (props) {
 
@@ -16,27 +54,27 @@ return (
         <Switch size={Sizes.SMALL} active={{ text: 'Use' }} inactive={{ text: '?' }}/>
     </div>
     <div className="columns small-5 medium-3 inv-ingredient">
-        <span className="tiny-text">chicken sausage</span>
+        <span className="tiny-text">{props.name}</span>
     </div>
     <div className="columns small-1 medium-1 inv-location fridge">
-        <span>R</span>
+        <span>{props.storePlace}</span>
     </div>
     <div className="columns small-0 medium-1 inv-qty small-hide">
-                <span>qty:</span>
+                <span>qty: {props.qty}</span>
             </div>
             <div className="columns small-0 medium-1 inv-unit small-hide">
-                <span>unit:</span>
+                <span>unit: {props.unit}</span>
             </div>
             
             <div className="columns small-0 medium-2 inv-datein small-hide">
-                <span>date in:</span>
+                <span>date in:{props.dateIn}</span>
             </div>
     <div className="columns small-2 medium-2 inv-expires">
-        <span className="tiny-text">1.1.19</span>
+        <span className="tiny-text">{props.expireDate}</span>
     </div>
             
     <div className="columns small-2 medium-1 inv-x">
-        <button className="inv-xbutton">x</button>
+         <DeleteBtn onClick={() => props.deleteFood(props.id)}/>
     </div>
     
 </div>   
@@ -49,4 +87,3 @@ return (
 };
 
 export default InvItem;
-
