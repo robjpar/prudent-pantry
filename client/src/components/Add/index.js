@@ -38,11 +38,7 @@ return (
             name="expireDate"
             placeholder="(mm/dd/yy) "className="input-group-field expiresInput" type="date"/>
           </div>
-          <div className="input-group-button">
-              <input 
-              //disabled={!(this.state.name && this.state.unit && this.state.qty && this.state.expireDate)}
-              onClick={props.handleFormSubmit} type="submit" className="button buttonInput" value="Submit"/>
-          </div>
+          
         </div>
         <div className="row">
           <fieldset className="large-7 card centering">
@@ -52,7 +48,7 @@ return (
                 <input type="radio" onChange={props.handleInputChange} name="storePlace" value="freezer" id="pokemonYellow"/><label htmlFor="pokemonYellow">freezer</label>
               </fieldset>
               <div className="input-group-button">
-              <input type="submit" className="button buttonInput" value="Submit"/>
+              <input type="submit" onClick={props.handleFormSubmit} className="button buttonInput" value="Submit"/>
           </div>
         </div> 
     </form>

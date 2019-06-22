@@ -10,7 +10,7 @@ return (
 
 <div className="row itemrow bordering">
     <div className="columns medium-2 bordering">
-        <a href={this.response.data.hits[0].recipe.url}><img src={this.response.data.hits[0].recipe.image}  alt={this.response.data.hits[0].recipe.label} className="imaging"/></a>
+        {/* <a href={this.response.data.hits[0].recipe.url}><img src={this.response.data.hits[0].recipe.image}  alt={this.response.data.hits[0].recipe.label} className="imaging"/></a> */}
     </div>
     <div className="columns medium-2 bordering">
         <span>qty: </span>
@@ -19,7 +19,7 @@ return (
         <span>unit: </span>
     </div>
     <div className="columns medium-1 bordering">
-        <span>title: {this.response.data.hits[0].recipe.label}</span>
+        {/* <span>title: {this.response.data.hits[0].recipe.label}</span> */}
     </div>
     <div className="columns medium-2 bordering">
         <span>energy</span>
