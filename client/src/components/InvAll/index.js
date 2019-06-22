@@ -16,6 +16,7 @@ export default function InvAll({children}) {
         type="submit"
         className="button centering searchRecipes"
         value="Search Recipes"
+      
       />
 
       <hr />

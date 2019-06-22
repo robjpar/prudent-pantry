@@ -21,7 +21,8 @@ class Foods extends Component {
     qty: "",
     unit: "",
     storePlace: "",
-    dateIn: ""
+    dateIn: "",
+    recipeSearch: ""
   };
 
   // When the component mounts, load all foods and save them to this.state.foods
@@ -29,13 +30,13 @@ class Foods extends Component {
     this.loadFoods();
   }
 
-  // loadRecipes = () => {
-  //   API.getRecipes().then(res =>
-  //     this.setState({
-  //       recipes: res.data
-  //     })
-  //   );
-  // };
+  handleRecipeSubmit = event => {
+    // When the form is submitted, prevent its default behavior, get recipes update the recipes state
+    event.preventDefault();
+    API.getRecipes(this.state.recipeSearch)
+      .then(res => this.setState({ recipes: res.data }))
+      .catch(err => console.log(err));
+  };
 
   // Loads all foods  and sets them to this.state.foodss
   loadFoods = () => {
@@ -104,7 +105,7 @@ class Foods extends Component {
 
             <div className="columns medium-10 centering">
               <h5>inventory</h5>
-              <InvAll>
+              <InvAll handleClick={this.handleClick}>
                 {this.state.inventory.map(item => {
                   return (
                     <InvItem
@@ -119,8 +120,9 @@ class Foods extends Component {
                       storePlace={item.storePlace[0].name}
                       dateIn={new Date(item.dateIn).toLocaleDateString()}
                       deleteFood={this.deleteFood}
+                      handleClick={this.handleClick}
+                      handleFormSubmit={this.handleFormSubmit}
                     >
-                      {/* <DeleteBtn onClick={() => this.deleteFood(item._id)} /> */}
                     </InvItem>
                   );
                 })}
