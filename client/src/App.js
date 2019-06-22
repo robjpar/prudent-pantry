@@ -2,7 +2,7 @@ import React from 'react';
 
 import './App.css';
 import Container from './components/Container';
-import Nav from './components/Nav'
+// import Nav from './components/Nav'
 import Add from './components/Add';
 import InvAll from './components/InvAll';
 import RecipeAll from './components/RecipeAll';
@@ -14,18 +14,22 @@ function App() {
     
    <Container>
      
-     <Nav
+     {/* <Nav
      
-     />
+     /> */}
 
      <Login
 
      />
+     <div>
+       <h1>Prudent Pantry</h1>
+     </div>
      <div classname="centering">
      <i class="fas fa-utensil-spoon" alt="spoon"></i>
        <h5 className="shadowing centering">Add Item:</h5>
        <i class="fas fa-utensil-spoon" alt="spoon"></i>
      </div>
+     
      <Add 
      
      />
