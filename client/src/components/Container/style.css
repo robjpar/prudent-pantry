@@ -2,17 +2,8 @@
     text-align: center;
 
 }
-.middling {
-    background: lightgrey;
-
-}
-
-.bordering {
-    border: 1px solid grey;
-}
-
-.itemrow {
-    padding: 10px;
+body {
+  background-color:whitesmoke;
 }
 
 .scrolling {
