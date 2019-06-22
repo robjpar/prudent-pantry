@@ -91,8 +91,11 @@ class App extends Component {
   render() {
     return (
       <Container>
-        <Nav />
+        {/* <Nav /> */}
         <Login />
+        <div>
+          <h1>Prudent Pantry</h1>
+        </div>
         <div classname="centering">
           <i class="fas fa-utensil-spoon" alt="spoon" />
           <h5 className="shadowing centering">Add Item:</h5>
