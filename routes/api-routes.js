@@ -1,3 +1,4 @@
+const axios = require('axios');
 const db = require('../models');
 
 // API routes
@@ -110,6 +111,25 @@ module.exports = function(app) {
       })
       .then(function(item) {
         res.json(item);
+      })
+      .catch(function(err) {
+        res.json(err);
+      });
+  });
+
+  // Get recipes for given list of ingredients
+  // Example of the query of the request:
+  // /api/recipes?q=chicken,eggs,cheese
+  app.get('/api/recipes', function(req, res) {
+    axios
+      .get(
+        'https://api.edamam.com/search?app_id=d1219d60&app_key=edf5e4d50fb0abcd48b0f405e76f4b6e',
+        {
+          params: req.query
+        }
+      )
+      .then(function(response) {
+        res.json(response.data.hits);
       })
       .catch(function(err) {
         res.json(err);
