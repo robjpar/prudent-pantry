@@ -9,9 +9,9 @@ import RecipeAll from "./components/RecipeAll";
 import InvItem from "./components/InvItem";
 import API from "./utils/api-routes.js";
 import RecipeItem from "./components/RecipeItem";
-import DeleteBtn from "./components/DeleteBtn";
+import Login from "./components/Login";
 
-class Foods extends Component {
+class App extends Component {
   // Setting our component's initial state
   state = {
     inventory: [],
@@ -29,7 +29,6 @@ class Foods extends Component {
   componentDidMount() {
     this.loadFoods();
   }
-
   handleRecipeSubmit = event => {
     // When the form is submitted, prevent its default behavior, get recipes update the recipes state
     event.preventDefault();
@@ -93,18 +92,22 @@ class Foods extends Component {
     return (
       <Container>
         <Nav />
+        <Login />
+        <div classname="centering">
+          <i class="fas fa-utensil-spoon" alt="spoon" />
+          <h5 className="shadowing centering">Add Item:</h5>
+          <i class="fas fa-utensil-spoon" alt="spoon" />
+        </div>
         <Add
           handleInputChange={this.handleInputChange}
           handleFormSubmit={this.handleFormSubmit}
         />
         <div className="main-container">
           <div className="row">
-            <div className="columns medium-1 centering">
-              <span>&nbsp;</span>
-            </div>
+            <div className="columns medium-1 centering">&nbsp;</div>
 
             <div className="columns medium-10 centering">
-              <h5>inventory</h5>
+              <h5 className="shadowing">Inventory</h5>
               <InvAll handleClick={this.handleClick}>
                 {this.state.inventory.map(item => {
                   return (
@@ -122,22 +125,14 @@ class Foods extends Component {
                       deleteFood={this.deleteFood}
                       handleClick={this.handleClick}
                       handleFormSubmit={this.handleFormSubmit}
-                    >
-                    </InvItem>
+                    />
                   );
                 })}
               </InvAll>
-
               <hr />
-              <h5>Recipes</h5>
-              {/* <RecipeAll>
-                {this.state.recipes.map(item => {
-                  return (
-                    <RecipeItem 
-                      
-                  )
-                })}
-              <br /> */}
+              <h5 className="shadowing">Recipes</h5>
+              <RecipeAll />
+              <br />
             </div>
             <div className="columns medium-1 centering" />
           </div>
@@ -147,4 +142,4 @@ class Foods extends Component {
   }
 }
 
-export default Foods;
+export default App;

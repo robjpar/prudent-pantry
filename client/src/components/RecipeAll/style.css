@@ -7,9 +7,7 @@
 
 }
 
-.bordering {
-    border: 1px solid grey;
-}
+
 
 .itemrow {
     padding: 10px;
@@ -23,4 +21,14 @@
 .imaging {
   height: 80px;
   width: 80px;
+}
+
+h1,h2,h3,h4,h5,h6,body {
+    font-family: 'Work Sans', sans-serif;
+}
+
+.shadowing {
+    text-shadow:
+    1px -1px 0 #eeeeee
+      
 }

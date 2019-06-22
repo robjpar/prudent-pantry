@@ -3,24 +3,21 @@
 
 }
 .middling {
-    background: lightgrey;
+    background: whitesmoke;
 
-}
-
-.bordering {
-    border: 1px solid grey;
-}
-
-.itemrow {
-    padding: 10px;
 }
 
 .scrolling {
     height: 250px;
     overflow: scroll;
 }
+.shadow {
+    -moz-box-shadow:    2px 0px 2px 0px #ccc;
+    -webkit-box-shadow: 2px 0px 0px 0px #ccc;
+    box-shadow:         1px 2px 3px 1px #ccc;
+  }
 
-.imaging {
-  height: 80px;
-  width: 80px;
+.z-button {
+    margin-top: 10px;
+    z-index: 99;
 }

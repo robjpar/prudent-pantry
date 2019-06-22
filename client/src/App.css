@@ -8,9 +8,7 @@
 
 }
 
-.bordering {
-  border: 1px solid grey;
-}
+
 
 .itemrow {
   padding: 10px;
@@ -26,5 +24,6 @@ height: 80px;
 width: 80px;
 }
 
-
-
+.fonting {
+  font-family: 'Work Sans', sans-serif;
+}
