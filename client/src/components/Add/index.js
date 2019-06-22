@@ -25,17 +25,17 @@ return (
             <span className="input-group-label">Expires:</span>
             <input className="input-group-field expiresInput" type="date"/>
           </div>
-          <div className="input-group-button">
-              <input type="submit" className="button buttonInput" value="Submit"/>
-          </div>
+
         </div>
         <div className="row">
-          <fieldset className="large-7 card">
-                <legend>Add food item to:</legend>
+          <fieldset className="large-7 card centering">
                 <input type="radio" name="pokemon" value="Red" id="pokemonRed" required/><label htmlFor="pokemonRed">pantry</label>
                 <input type="radio" name="pokemon" value="Blue" id="pokemonBlue"/><label htmlFor="pokemonBlue">fridge</label>
                 <input type="radio" name="pokemon" value="Yellow" id="pokemonYellow"/><label htmlFor="pokemonYellow">freezer</label>
               </fieldset>
+              <div className="input-group-button">
+              <input type="submit" className="button buttonInput" value="Submit"/>
+          </div>
         </div> 
     </form>
     

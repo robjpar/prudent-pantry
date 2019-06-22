@@ -1,18 +1,27 @@
+.switch-paddle {
+    background-color: #219875
+}
+
+
 .centering {
     text-align: center;
 
 }
 .middling {
-    background: lightgrey;
+    background: orange;
 
 }
 
 .bordering {
-    border: 1px solid grey;
+    
+    background-image: linear-gradient( whitesmoke , #f4f2de, whitesmoke);
+    padding-top: 3px;
+    margin: 0px;
 }
 
 .itemrow {
-    padding: 10px;
+    /* padding: 2px; */
+
 }
 
 .scrolling {
@@ -24,3 +33,109 @@
   height: 80px;
   width: 80px;
 }
+
+.inv-xbutton {
+    height: 25px;
+  width: 25px;
+  background-color: #de7231;
+  border-radius: 50%;
+  display: inline-block;
+  text-align: center;
+  padding-bottom: 3px;
+}
+
+.fridge {
+    background-color:lightblue;
+}
+.freeze {
+    background-color:blue;
+}
+.pantry {
+    background-color:tan;
+}
+
+/* Small only */
+@media screen and (max-width: 39.9375em) {
+    
+.small-hide {
+    display:none;
+}
+
+
+.tiny-text {
+    font-size: small;
+}
+.inv-select {
+
+}
+.inv-itemrow {
+    height: 35px;
+    padding-top:2px;
+    clear: both;
+    margin:0px;
+    padding:0px;
+    border: 0px;
+    
+}
+.inv-ingredient {
+  
+    text-align:center;
+}
+.inv-expires {
+  
+  padding:0px;
+  text-align:center;
+}
+.inv-location {
+    padding:0px;
+    text-align:center;
+}
+.inv-unit {
+
+}
+.inv-datein {
+
+}
+
+
+.inv-xbutton {
+    height: 25px;
+  width: 25px;
+  background-color: #de7231;
+  border-radius: 50%;
+  display: inline-block;
+  text-align: center;
+  padding-bottom: 3px
+  
+
+}
+
+/* colors in comments */
+/* seablue #219875 */
+/* darkgrn #034732 */
+/* ltgrn #c1cd21 */
+/* beige #f4f2de */
+/* orng #de7231 */
+}
+
+/* Medium and up */
+@media screen and (min-width: 40em) {
+
+
+
+}
+
+/* Medium only */
+@media screen and (min-width: 40em) and (max-width: 63.9375em) {
+
+span {
+    font-size: small;
+}
+
+}
+
+/* Large and up */
+@media screen and (min-width: 64em) {}
+
+/* Large only */
+@media screen and (min-width: 64em) and (max-width: 74.9375em) {}

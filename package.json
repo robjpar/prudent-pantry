@@ -40,7 +40,8 @@
   "dependencies": {
     "express": "^4.17.1",
     "if-env": "^1.0.4",
-    "mongoose": "^5.5.14"
+    "mongoose": "^5.5.14",
+    "react-fontawesome": "^1.6.1"
   },
   "devDependencies": {
     "concurrently": "^4.1.0",

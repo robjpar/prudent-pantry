@@ -18,13 +18,10 @@ return (
       <ul className="menu simple vertical medium-horizontal">
         <li><a href="#">Home</a></li>
         <li><a href="#">Login</a></li>
-        <li><a href="#">Stock</a></li>
-        <li><a href="#">Recipes</a></li>
-        <li><a href="#">Shop</a></li>
+
+ 
         
-        <li>
-          <button type="button" className="button hollow topbar-responsive-button">Search</button>
-        </li>
+        
       </ul>
     </div>
   </div>

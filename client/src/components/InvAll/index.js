@@ -7,12 +7,28 @@ function InvAll (props) {
 
 return (
 <div>
-<div className="container scrolling middling">
+<div className="container scrolling shadow">
+  <InvItem
+  />
+  <InvItem
+  />
+  <InvItem
+  /> 
+  <InvItem
+  />
+  <InvItem
+  />
+  <InvItem
+  />
+   <InvItem
+  />
+  <InvItem
+  />
   <InvItem
   />
 </div>
 
-<input type="submit" className="button centering searchRecipes" value="Search Recipies"/>
+<input type="submit" className="button z-button centering searchRecipes" value="Search Recipies"/>
 
 <hr/>
 </div>
