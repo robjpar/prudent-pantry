@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.css";
 import Container from "./components/Container";
 import Nav from "./components/Nav";
@@ -10,6 +10,7 @@ import InvItem from "./components/InvItem";
 import API from "./utils/api-routes.js";
 import RecipeItem from "./components/RecipeItem";
 import Login from "./components/Login";
+import Signup from "./components/Signup";
 
 let recipeSearchItems = [];
 
@@ -107,9 +108,13 @@ class App extends Component {
 
   render() {
     return (
-      <Container>
+      <Router>
+        <Switch>
+        <Container>
         {/* <Nav /> */}
-        <Login />
+        <Route exact path="/" component={Login} />
+        <Route exact path="/signup" component={Signup} />
+        <Route exact path="/login" component={Login} />
         <div>
           <h1>Prudent Pantry</h1>
         </div>
@@ -183,6 +188,8 @@ class App extends Component {
           </div>
         </div>
       </Container>
+        </Switch>
+      </Router>
     );
   }
 }
