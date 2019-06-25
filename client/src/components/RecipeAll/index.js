@@ -3,18 +3,19 @@ import './style.css';
 import RecipeItem from '../RecipeItem';
 
 
-function RecipeAll (props) {
+function RecipeAll ({children}) {
 
 
 return (
-    <div className="container scrolling middling bordering">
+    <div>
+        <ul className="list">
+    <div className="container scrolling middling bordering" >{children}></div>
+</ul>
 
-    <RecipeItem 
-        
-    
-    />
+
 
     </div>
+    
     
     );
 

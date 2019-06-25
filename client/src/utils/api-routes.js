@@ -22,7 +22,8 @@ export default {
   },
 
   getRecipes: function(query) {
-    return axios.get("api/recipes" + query);
+    console.log(query);
+    return axios.get("/api/recipes", { params: { q: query } });
   }
-};
 
+}
