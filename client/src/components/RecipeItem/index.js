@@ -2,7 +2,7 @@ import React from 'react';
 import './style.css';
 // import { Container, Row, Col } from "../Grid";
 
-function RecipeItem ()
+function RecipeItem (props)
 {
     
 
@@ -10,7 +10,7 @@ return (
 
 <div className="row itemrow bordering">
     <div className="columns medium-2 bordering">
-        {/* <a href={this.response.data.hits[0].recipe.url}><img src={this.response.data.hits[0].recipe.image}  alt={this.response.data.hits[0].recipe.label} className="imaging"/></a> */}
+        <a href={props.href}><img src={props.src}  alt={props.name}></img></a>
     </div>
     <div className="columns medium-2 bordering">
         <span>qty: </span>
@@ -19,19 +19,19 @@ return (
         <span>unit: </span>
     </div>
     <div className="columns medium-1 bordering">
-        {/* <span>title: {this.response.data.hits[0].recipe.label}</span> */}
+        {props.name}
     </div>
     <div className="columns medium-2 bordering">
-        <span>energy</span>
+        <span>{props.energy}</span>
     </div>
     <div className="columns medium-2 bordering">
         <span>nutrients</span><br/>
-          <span>protein:</span><br/>
-          <span>fat:</span><br/>
-          <span>carbs:</span>
+          <span>protein: {props.protein}</span><br/>
+          <span>fat: {props.fat}</span><br/>
+          <span>carbs: {props.carbs} </span>
     </div>
     <div className="columns medium-2 bordering">
-        <button>Select</button>
+        <a href={props.href} target="_blank"><button>Select</button></a>
     </div>
   
 </div>

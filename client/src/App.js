@@ -11,6 +11,9 @@ import API from "./utils/api-routes.js";
 import RecipeItem from "./components/RecipeItem";
 import Login from "./components/Login";
 
+let recipeSearchItems = [];
+
+
 class App extends Component {
   // Setting our component's initial state
   state = {
@@ -22,20 +25,31 @@ class App extends Component {
     unit: "",
     storePlace: "",
     dateIn: "",
-    recipeSearch: ""
+    itemsToSearch: '',
+  
   };
+  
+  
+  handleToggleChange = event => {
+    let toggledItem = event.target.id;
+    console.log(toggledItem);
+    if (recipeSearchItems.includes(toggledItem)){
+      recipeSearchItems.splice( recipeSearchItems.indexOf(toggledItem), 1 );
+    } else {
+      recipeSearchItems.push(toggledItem);
+    }
+    console.log(recipeSearchItems);
+    this.setState({itemsToSearch: recipeSearchItems})
+    console.log(this.state.itemsToSearch)
+  }
+ 
+  
 
   // When the component mounts, load all foods and save them to this.state.foods
   componentDidMount() {
     this.loadFoods();
   }
-  handleRecipeSubmit = event => {
-    // When the form is submitted, prevent its default behavior, get recipes update the recipes state
-    event.preventDefault();
-    API.getRecipes(this.state.recipeSearch)
-      .then(res => this.setState({ recipes: res.data }))
-      .catch(err => console.log(err));
-  };
+
 
   // Loads all foods  and sets them to this.state.foodss
   loadFoods = () => {
@@ -62,6 +76,7 @@ class App extends Component {
     this.setState({
       [name]: value
     });
+    console.log(this.state)
   };
 
   handleFormSubmit = event => {
@@ -83,9 +98,12 @@ class App extends Component {
   handleClick = event => {
     event.preventDefault();
     console.log("click");
-    API.getRecipes(this.state.RecipeSearch).then(res =>
-      this.setState({ recipes: res.data })
-    );
+    API.getRecipes(this.state.itemsToSearch.join()).then(res =>
+      this.setState({ recipes: res.data }));
+      console.log(this.state.recipes);
+    
+  
+    
   };
 
   render() {
@@ -111,7 +129,7 @@ class App extends Component {
 
             <div className="columns medium-10 centering">
               <h5 className="shadowing">Inventory</h5>
-              <InvAll handleClick={this.handleClick}>
+              <InvAll>
                 {this.state.inventory.map(item => {
                   return (
                     <InvItem
@@ -128,13 +146,38 @@ class App extends Component {
                       deleteFood={this.deleteFood}
                       handleClick={this.handleClick}
                       handleFormSubmit={this.handleFormSubmit}
+                      toggle={this.toggle}
+                      handleToggleChange={this.handleToggleChange}
                     />
                   );
                 })}
               </InvAll>
+              <input
+                className="button z-button centering searchRecipes"
+                value="Search Recipes"
+                type="submit"
+                onClick={this.handleClick}
+              />
+
+              <hr />
               <hr />
               <h5 className="shadowing">Recipes</h5>
-              <RecipeAll />
+              <RecipeAll>
+                {this.state.recipes.map(item => {
+                  return (
+                    <RecipeItem
+                      key={item.recipe.uri}
+                      name={item.recipe.label}
+                      href={item.recipe.shareAs}
+                      src={item.recipe.image}
+                      calories={item.recipe.calories}
+                      fat={item.recipe.totalNutrients.FAT.quantity}
+                      protein={item.recipe.totalNutrients.PROCNT.quantity}
+                      carbs={item.recipe.totalNutrients.CHOCDF.quantity}
+                    />
+                  );
+                })}
+              </RecipeAll>
               <br />
             </div>
             <div className="columns medium-1 centering" />
