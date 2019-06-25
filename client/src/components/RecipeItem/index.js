@@ -26,9 +26,9 @@ return (
     </div>
     <div className="columns medium-2 bordering">
         <span>nutrients</span><br/>
-          <span>protein: {props.protein}</span><br/>
-          <span>fat: {props.fat}</span><br/>
-          <span>carbs: {props.carbs} </span>
+          <span>protein: {Math.round(props.protein)}</span><br/>
+          <span>fat: {Math.round(props.fat)}</span><br/>
+          <span>carbs: {Math.round(props.carbs)} </span>
     </div>
     <div className="columns medium-2 bordering">
         <a href={props.href} target="_blank"><button>Select</button></a>

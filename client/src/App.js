@@ -76,7 +76,6 @@ class App extends Component {
     this.setState({
       [name]: value
     });
-    console.log(this.state)
   };
 
   handleFormSubmit = event => {
@@ -93,7 +92,7 @@ class App extends Component {
       .then(res => this.loadFoods())
       .catch(err => console.log(err));
     //}
-  };
+};
 
   handleClick = event => {
     event.preventDefault();
