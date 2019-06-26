@@ -133,52 +133,42 @@ class App extends Component {
               <Route exact path="/signup" component={Signup} />
               <Route exact path="/login" component={Login} />
               <Switch>
-                <PrivateRoute exact path="/dashboard" component={Dashboard} />
-              </Switch>
-              <Add
-                handleInputChange={this.handleInputChange}
-                handleFormSubmit={this.handleFormSubmit}
-              />
-              <div className="main-container">
-                <div className="row">
-                  <div className="columns medium-1 centering">&nbsp;</div>
-
-                  <div className="columns medium-10 centering">
-                    <h5 className="shadowing">Inventory</h5>
-                    <InvAll>
-                      {this.state.inventory.map(item => {
-                        return (
-                          <InvItem
-                            key={item._id}
-                            id={item._id}
-                            name={item.name}
-                            qty={item.qty["$numberDecimal"]}
-                            unit={item.unit}
-                            expireDate={new Date(
-                              item.expireDate
-                            ).toLocaleDateString()}
-                            storePlace={item.storePlace[0].name}
-                            dateIn={new Date(item.dateIn).toLocaleDateString()}
-                            deleteFood={this.deleteFood}
-                            handleClick={this.handleClick}
-                            handleFormSubmit={this.handleFormSubmit}
-                            toggle={this.toggle}
-                            handleToggleChange={this.handleToggleChange}
-                          />
-                        );
-                      })}
-                    </InvAll>
-                    <input
-                      className="button z-button centering searchRecipes"
-                      value="Search Recipes"
-                      type="submit"
-                      onClick={this.handleClick}
-                    />
-
-                    <hr />
-                    <hr />
-                    <h5 className="shadowing">Recipes</h5>
-                    <RecipeAll>
+                <PrivateRoute exact path="/dashboard" component={Dashboard}>
+                  <Dashboard />
+                  <Add
+                    handleInputChange={this.handleInputChange}
+                    handleFormSubmit={this.handleFormSubmit}
+                  />
+                  <InvAll>
+                    {this.state.inventory.map(item => {
+                      return (
+                        <InvItem
+                          key={item._id}
+                          id={item._id}
+                          name={item.name}
+                          qty={item.qty["$numberDecimal"]}
+                          unit={item.unit}
+                          expireDate={new Date(
+                            item.expireDate
+                          ).toLocaleDateString()}
+                          storePlace={item.storePlace[0].name}
+                          dateIn={new Date(item.dateIn).toLocaleDateString()}
+                          deleteFood={this.deleteFood}
+                          handleClick={this.handleClick}
+                          handleFormSubmit={this.handleFormSubmit}
+                          toggle={this.toggle}
+                          handleToggleChange={this.handleToggleChange}
+                        />
+                      );
+                    })}
+                  </InvAll>
+                  <RecipeAll>
+                      <input
+                        className="button z-button centering searchRecipes"
+                        value="Search Recipes"
+                        type="submit"
+                        onClick={this.handleClick}
+                      />
                       {this.state.recipes.map(item => {
                         return (
                           <RecipeItem
@@ -193,12 +183,11 @@ class App extends Component {
                           />
                         );
                       })}
+                      <br />
+                      <div className="columns medium-1 centering" />
                     </RecipeAll>
-                    <br />
-                  </div>
-                  <div className="columns medium-1 centering" />
-                </div>
-              </div>
+                </PrivateRoute>
+              </Switch>
             </Container>
         </Router>
       </Provider>
