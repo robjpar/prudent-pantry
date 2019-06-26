@@ -22,3 +22,7 @@
   height: 80px;
   width: 80px;
 }
+
+.recipe-title {
+    font-size: 200%;
+}
