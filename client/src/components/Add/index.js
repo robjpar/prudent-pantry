@@ -5,9 +5,10 @@ function Add (props) {
 
 
 return ( 
-
- 
     <form className="input-group groupInput">
+        <div classname="centering">
+          <h5 className="shadowing centering">Add Item:</h5>
+        </div>
         <div className="row">
           <div className="columns medium-3">
             <span className="input-group-label">Name:</span>

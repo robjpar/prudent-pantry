@@ -128,21 +128,13 @@ class App extends Component {
       <Provider store={store}>
         <Router>
             <Container>
-              {/* <Nav /> */}
+              <Nav />
               <Route exact path="/" component={Login} />
               <Route exact path="/signup" component={Signup} />
               <Route exact path="/login" component={Login} />
               <Switch>
                 <PrivateRoute exact path="/dashboard" component={Dashboard} />
               </Switch>
-              <div>
-                <h1>Prudent Pantry</h1>
-              </div>
-              <div classname="centering">
-                <i class="fas fa-utensil-spoon" alt="spoon" />
-                <h5 className="shadowing centering">Add Item:</h5>
-                <i class="fas fa-utensil-spoon" alt="spoon" />
-              </div>
               <Add
                 handleInputChange={this.handleInputChange}
                 handleFormSubmit={this.handleFormSubmit}
