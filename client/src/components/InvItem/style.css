@@ -45,13 +45,13 @@
 }
 
 .fridge {
-    background-color:lightblue;
+    background-color:rgb(203, 230, 240);
 }
-.freeze {
-    background-color:blue;
+.freezer {
+    background-color:rgb(96, 165, 245);
 }
 .pantry {
-    background-color:tan;
+    background-color:rgb(255, 221, 173);
 }
 
 /* Small only */
@@ -97,6 +97,9 @@
 
 }
 
+.freezer, .fridge, .pantry{
+    font-size: 0;
+}
 
 .inv-xbutton {
     height: 25px;
@@ -121,7 +124,7 @@
 /* Medium and up */
 @media screen and (min-width: 40em) {
 
-
+    
 
 }
 
@@ -131,6 +134,8 @@
 span {
     font-size: small;
 }
+
+
 
 }
 
