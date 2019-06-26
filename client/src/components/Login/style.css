@@ -1,6 +1,7 @@
-
-  
-  
+.red-text{
+  color: #f10101;
+  font-weight: 600;
+}
 .floated-label-wrapper {
   position: relative;
 }
