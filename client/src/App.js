@@ -11,6 +11,8 @@ import API from "./utils/api-routes.js";
 import RecipeItem from "./components/RecipeItem";
 import Login from "./components/Login";
 import Signup from "./components/Signup";
+import { Provider } from "react-redux";
+import store from "./store";
 
 let recipeSearchItems = [];
 
@@ -99,88 +101,90 @@ class App extends Component {
 
   render() {
     return (
-      <Router>
-        <Switch>
-          <Container>
-            {/* <Nav /> */}
-            <Route exact path="/" component={Login} />
-            <Route exact path="/signup" component={Signup} />
-            <Route exact path="/login" component={Login} />
-            <div>
-              <h1>Prudent Pantry</h1>
-            </div>
-            <div classname="centering">
-              <i class="fas fa-utensil-spoon" alt="spoon" />
-              <h5 className="shadowing centering">Add Item:</h5>
-              <i class="fas fa-utensil-spoon" alt="spoon" />
-            </div>
-            <Add
-              handleInputChange={this.handleInputChange}
-              handleFormSubmit={this.handleFormSubmit}
-            />
-            <div className="main-container">
-              <div className="row">
-                <div className="columns medium-1 centering">&nbsp;</div>
-
-                <div className="columns medium-10 centering">
-                  <h5 className="shadowing">Inventory</h5>
-                  <InvAll>
-                    {this.state.inventory.map(item => {
-                      return (
-                        <InvItem
-                          key={item._id}
-                          id={item._id}
-                          name={item.name}
-                          qty={item.qty["$numberDecimal"]}
-                          unit={item.unit}
-                          expireDate={new Date(
-                            item.expireDate
-                          ).toLocaleDateString()}
-                          storePlace={item.storePlace[0].name}
-                          dateIn={new Date(item.dateIn).toLocaleDateString()}
-                          deleteFood={this.deleteFood}
-                          handleClick={this.handleClick}
-                          handleFormSubmit={this.handleFormSubmit}
-                          toggle={this.toggle}
-                          handleToggleChange={this.handleToggleChange}
-                        />
-                      );
-                    })}
-                  </InvAll>
-                  <input
-                    className="button z-button centering searchRecipes"
-                    value="Search Recipes"
-                    type="submit"
-                    onClick={this.handleClick}
-                  />
-
-                  <hr />
-                  <hr />
-                  <h5 className="shadowing">Recipes</h5>
-                  <RecipeAll>
-                    {this.state.recipes.map(item => {
-                      return (
-                        <RecipeItem
-                          key={item.recipe.uri}
-                          name={item.recipe.label}
-                          href={item.recipe.shareAs}
-                          src={item.recipe.image}
-                          calories={item.recipe.calories}
-                          fat={item.recipe.totalNutrients.FAT.quantity}
-                          protein={item.recipe.totalNutrients.PROCNT.quantity}
-                          carbs={item.recipe.totalNutrients.CHOCDF.quantity}
-                        />
-                      );
-                    })}
-                  </RecipeAll>
-                  <br />
-                </div>
-                <div className="columns medium-1 centering" />
+      <Provider store={store}>
+        <Router>
+          <Switch>
+            <Container>
+              {/* <Nav /> */}
+              <Route exact path="/" component={Login} />
+              <Route exact path="/signup" component={Signup} />
+              <Route exact path="/login" component={Login} />
+              <div>
+                <h1>Prudent Pantry</h1>
               </div>
-            </div>
-          </Container>
-        </Switch>
-      </Router>
+              <div classname="centering">
+                <i class="fas fa-utensil-spoon" alt="spoon" />
+                <h5 className="shadowing centering">Add Item:</h5>
+                <i class="fas fa-utensil-spoon" alt="spoon" />
+              </div>
+              <Add
+                handleInputChange={this.handleInputChange}
+                handleFormSubmit={this.handleFormSubmit}
+              />
+              <div className="main-container">
+                <div className="row">
+                  <div className="columns medium-1 centering">&nbsp;</div>
+
+                  <div className="columns medium-10 centering">
+                    <h5 className="shadowing">Inventory</h5>
+                    <InvAll>
+                      {this.state.inventory.map(item => {
+                        return (
+                          <InvItem
+                            key={item._id}
+                            id={item._id}
+                            name={item.name}
+                            qty={item.qty["$numberDecimal"]}
+                            unit={item.unit}
+                            expireDate={new Date(
+                              item.expireDate
+                            ).toLocaleDateString()}
+                            storePlace={item.storePlace[0].name}
+                            dateIn={new Date(item.dateIn).toLocaleDateString()}
+                            deleteFood={this.deleteFood}
+                            handleClick={this.handleClick}
+                            handleFormSubmit={this.handleFormSubmit}
+                            toggle={this.toggle}
+                            handleToggleChange={this.handleToggleChange}
+                          />
+                        );
+                      })}
+                    </InvAll>
+                    <input
+                      className="button z-button centering searchRecipes"
+                      value="Search Recipes"
+                      type="submit"
+                      onClick={this.handleClick}
+                    />
+
+                    <hr />
+                    <hr />
+                    <h5 className="shadowing">Recipes</h5>
+                    <RecipeAll>
+                      {this.state.recipes.map(item => {
+                        return (
+                          <RecipeItem
+                            key={item.recipe.uri}
+                            name={item.recipe.label}
+                            href={item.recipe.shareAs}
+                            src={item.recipe.image}
+                            calories={item.recipe.calories}
+                            fat={item.recipe.totalNutrients.FAT.quantity}
+                            protein={item.recipe.totalNutrients.PROCNT.quantity}
+                            carbs={item.recipe.totalNutrients.CHOCDF.quantity}
+                          />
+                        );
+                      })}
+                    </RecipeAll>
+                    <br />
+                  </div>
+                  <div className="columns medium-1 centering" />
+                </div>
+              </div>
+            </Container>
+          </Switch>
+        </Router>
+      </Provider>
     );
   }
 }
