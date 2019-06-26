@@ -9,19 +9,19 @@ function RecipeItem (props)
 return (
 
 <div className="row itemrow bordering">
-    <div className="columns medium-2 bordering">
+    <div className="columns medium-3 bordering">
         <a href={props.href}><img src={props.src}  alt={props.name}></img></a>
     </div>
-    <div className="columns medium-2 bordering">
+    {/* <div className="columns medium-2 bordering">
         <span>qty: </span>
     </div>
     <div className="columns medium-1 bordering">
         <span>unit: </span>
-    </div>
-    <div className="columns medium-1 bordering">
+    </div> */}
+    <div className="columns medium-9 bordering recipe-title">
         {props.name}
     </div>
-    <div className="columns medium-2 bordering">
+    {/* <div className="columns medium-2 bordering">
         <span>{props.energy}</span>
     </div>
     <div className="columns medium-2 bordering">
@@ -32,7 +32,7 @@ return (
     </div>
     <div className="columns medium-2 bordering">
         <a href={props.href} target="_blank"><button>Select</button></a>
-    </div>
+    </div> */}
   
 </div>
 

@@ -19,7 +19,7 @@ return (
     <div className="columns small-5 medium-3 inv-ingredient">
         <span className="tiny-text">{props.name}</span>
     </div>
-    <div className="columns small-1 medium-1 inv-location fridge">
+    <div className={['columns small-1 medium-1 inv-location ', props.storePlace].join('')}>
         <span>{props.storePlace}</span>
     </div>
     <div className="columns small-0 medium-1 inv-qty small-hide">
