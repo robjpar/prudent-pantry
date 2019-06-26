@@ -162,13 +162,13 @@ class App extends Component {
                       );
                     })}
                   </InvAll>
+                  <input
+                    className="button z-button centering searchRecipes"
+                    value="Search Recipes"
+                    type="submit"
+                    onClick={this.handleClick}
+                  />
                   <RecipeAll>
-                      <input
-                        className="button z-button centering searchRecipes"
-                        value="Search Recipes"
-                        type="submit"
-                        onClick={this.handleClick}
-                      />
                       {this.state.recipes.map(item => {
                         return (
                           <RecipeItem
