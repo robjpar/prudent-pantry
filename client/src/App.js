@@ -9,8 +9,34 @@ import RecipeAll from "./components/RecipeAll";
 import InvItem from "./components/InvItem";
 import API from "./utils/api-routes.js";
 import RecipeItem from "./components/RecipeItem";
+
+import jwt_decode from "jwt-decode";
+import setAuthToken from "./utils/setAuthToken";
+import { setCurrentUser, logoutUser } from "./actions/authActions";
+import { Provider } from "react-redux";
 import Login from "./components/Login";
 import Signup from "./components/Signup";
+import store from "./store";
+import PrivateRoute from "./components/private-route/PrivateRoute";
+import Dashboard from "./components/dashboard/Dashboard";
+// Check for token to keep user logged in
+if (localStorage.jwtToken) {
+  // Set auth token header auth
+  const token = localStorage.jwtToken;
+  setAuthToken(token);
+  // Decode token and get user info and exp
+  const decoded = jwt_decode(token);
+  // Set user and isAuthenticated
+  store.dispatch(setCurrentUser(decoded));
+// Check for expired token
+  const currentTime = Date.now() / 1000; // to get in milliseconds
+  if (decoded.exp < currentTime) {
+    // Logout user
+    store.dispatch(logoutUser());
+    // Redirect to login
+    window.location.href = "./login";
+  }
+}
 
 let recipeSearchItems = [];
 
@@ -99,31 +125,20 @@ class App extends Component {
 
   render() {
     return (
-      <Router>
-        <Switch>
-          <Container>
-            {/* <Nav /> */}
-            <Route exact path="/" component={Login} />
-            <Route exact path="/signup" component={Signup} />
-            <Route exact path="/login" component={Login} />
-            <div>
-              <h1>Prudent Pantry</h1>
-            </div>
-            <div classname="centering">
-              <i class="fas fa-utensil-spoon" alt="spoon" />
-              <h5 className="shadowing centering">Add Item:</h5>
-              <i class="fas fa-utensil-spoon" alt="spoon" />
-            </div>
-            <Add
-              handleInputChange={this.handleInputChange}
-              handleFormSubmit={this.handleFormSubmit}
-            />
-            <div className="main-container">
-              <div className="row">
-                <div className="columns medium-1 centering">&nbsp;</div>
-
-                <div className="columns medium-10 centering">
-                  <h5 className="shadowing">Inventory</h5>
+      <Provider store={store}>
+        <Router>
+            <Container>
+              <Nav />
+              <Route exact path="/" component={Login} />
+              <Route exact path="/signup" component={Signup} />
+              <Route exact path="/login" component={Login} />
+              <Switch>
+                <PrivateRoute exact path="/dashboard" component={Dashboard}>
+                  <Dashboard />
+                  <Add
+                    handleInputChange={this.handleInputChange}
+                    handleFormSubmit={this.handleFormSubmit}
+                  />
                   <InvAll>
                     {this.state.inventory.map(item => {
                       return (
@@ -153,34 +168,29 @@ class App extends Component {
                     type="submit"
                     onClick={this.handleClick}
                   />
-
-                  <hr />
-                  <hr />
-                  <h5 className="shadowing">Recipes</h5>
                   <RecipeAll>
-                    {this.state.recipes.map(item => {
-                      return (
-                        <RecipeItem
-                          key={item.recipe.uri}
-                          name={item.recipe.label}
-                          href={item.recipe.shareAs}
-                          src={item.recipe.image}
-                          calories={item.recipe.calories}
-                          fat={item.recipe.totalNutrients.FAT.quantity}
-                          protein={item.recipe.totalNutrients.PROCNT.quantity}
-                          carbs={item.recipe.totalNutrients.CHOCDF.quantity}
-                        />
-                      );
-                    })}
-                  </RecipeAll>
-                  <br />
-                </div>
-                <div className="columns medium-1 centering" />
-              </div>
-            </div>
-          </Container>
-        </Switch>
-      </Router>
+                      {this.state.recipes.map(item => {
+                        return (
+                          <RecipeItem
+                            key={item.recipe.uri}
+                            name={item.recipe.label}
+                            href={item.recipe.shareAs}
+                            src={item.recipe.image}
+                            calories={item.recipe.calories}
+                            fat={item.recipe.totalNutrients.FAT.quantity}
+                            protein={item.recipe.totalNutrients.PROCNT.quantity}
+                            carbs={item.recipe.totalNutrients.CHOCDF.quantity}
+                          />
+                        );
+                      })}
+                      <br />
+                      <div className="columns medium-1 centering" />
+                    </RecipeAll>
+                </PrivateRoute>
+              </Switch>
+            </Container>
+        </Router>
+      </Provider>
     );
   }
 }

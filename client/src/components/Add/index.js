@@ -5,8 +5,12 @@ function Add (props) {
 
 
 return ( 
-
- 
+  <div>
+    <div classname="centering">
+      <i class="fas fa-utensil-spoon" alt="spoon" />
+      <h5 className="shadowing centering">Add Item:</h5>
+      <i class="fas fa-utensil-spoon" alt="spoon" />
+    </div>
     <form className="input-group groupInput">
         <div className="row">
           <div className="columns medium-3">
@@ -52,6 +56,7 @@ return (
           </div>
         </div> 
     </form>
+  </div>
     
     
     
