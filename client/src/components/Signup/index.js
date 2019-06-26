@@ -1,5 +1,10 @@
 import React from 'react';
 import './style.css';
+import { withRouter } from "react-router-dom";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import { registerUser } from "../../actions/authActions";
+import classnames from "classnames";
 // import { Switch } from 'react-foundation';
 
 
@@ -15,7 +20,24 @@ class Signup extends React.Component {
       errors: {}
     };
   }     
+  componentDidMount() {
+    // If logged in and user navigates to Login page, should redirect them to dashboard
+    if (this.props.auth.isAuthenticated) {
+      this.props.history.push("/dashboard");
+    }
+  }
 
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.auth.isAuthenticated) {
+      this.props.history.push("/dashboard");
+    }
+
+    if (nextProps.errors) {
+      this.setState({
+        errors: nextProps.errors
+      });
+    }
+  }
   onChange = e => {
     this.setState({ [e.target.id]: e.target.value });
   };
@@ -28,7 +50,7 @@ class Signup extends React.Component {
       password: this.state.password,
       password2: this.state.password2
     };
-    console.log(newUser);
+    this.props.registerUser(newUser, this.props.history); 
   };
 render () {  
   const { errors } = this.state;
@@ -46,7 +68,11 @@ render () {
             type="text"
             name="full name input"
             placeholder="Full name"
+            className={classnames("", {
+              invalid: errors.name
+            })}
           />
+          <span className="red-text">{errors.name}</span>
         </div>
         <div className="floated-label-wrapper">
           <label for="email">email</label>
@@ -58,7 +84,11 @@ render () {
             type="email"  
             name="email input"
             placeholder="Email"
+            className={classnames("", {
+              invalid: errors.email
+            })}
           />
+          <span className="red-text">{errors.email}</span>
         </div>
         <div className="floated-label-wrapper">
           <label for="pass">password</label>
@@ -68,10 +98,13 @@ render () {
             error={errors.password}
             id="password"
             type="password"
-            className="signupPass"
             name="password input"
             placeholder="Password"
+            className={classnames("", {
+              invalid: errors.password2
+            })}
           />
+          <span className="red-text">{errors.password}</span>
         </div>
         <div className="floated-label-wrapper">
           <label for="pass">confirm password</label>
@@ -81,10 +114,13 @@ render () {
             error={errors.password2}
             id="password2"
             type="password"
-            className="signupPass"
             name="password input"
             placeholder="Password"
+            className={classnames("", {
+              invalid: errors.password2
+            })}
           />
+          <span className="red-text">{errors.password2}</span>
         </div>
         
         <input
@@ -100,5 +136,17 @@ render () {
     )
   }
 }
+Signup.propTypes = {
+  registerUser: PropTypes.func.isRequired,
+  auth: PropTypes.object.isRequired,
+  errors: PropTypes.object.isRequired
+};
 
-export default Signup;
+const mapStateToProps = state => ({
+  auth: state.auth,
+  errors: state.errors
+});
+export default connect(
+  mapStateToProps,
+  { registerUser }
+)(withRouter(Signup));
