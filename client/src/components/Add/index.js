@@ -33,11 +33,11 @@ return (
           <div className="columns medium-3">
             <span className="input-group-label">Expires:</span>
             <input 
-            
             onChange={props.handleInputChange}
             name="expireDate"
             placeholder="(mm/dd/yy) "className="input-group-field expiresInput" type="date"/>
           </div>
+          <div className="columns medium-2">&nbsp;</div>
           
         </div>
         <div className="row">
