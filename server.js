@@ -38,7 +38,8 @@ app.use(passport.initialize());
 require("./config/passport")(passport);
 // Auth Route
 app.use("/api/users", users);
-
+// set static folder
+app.use(express.static(__dirname, 'client', 'build'));
 
 // Routing
 require("./routes/api-routes.js")(app);
