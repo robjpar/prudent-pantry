@@ -7,7 +7,7 @@ export default function InvAll({ children }) {
       <div className="main-container">
         <div className="row">
           
-          <div className="columns medium-10 centering">
+          <div className="columns medium-12 centering">
             <h5 className="shadowing">Inventory</h5>
               <ul className="list">
                 <div className="container scrolling shadow">{children}</div>
