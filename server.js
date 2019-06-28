@@ -39,10 +39,10 @@ require("./config/passport")(passport);
 // Auth Route
 app.use("/api/users", users);
 
+
 // Routing
 require("./routes/api-routes.js")(app);
 require("./routes/html-routes.js")(app);
-
 
 // Start the server
 const port = process.env.PORT || 3001;
