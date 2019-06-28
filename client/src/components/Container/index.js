@@ -8,7 +8,7 @@ function Container(props) {
     <div className="columns medium-1 centering">&nbsp;</div>
     
     
-    <div className="columns-10">{props.children}</div>
+    <div className="columns medium-10">{props.children}</div>
 
     <div className="columns medium-1 centering">&nbsp;</div>
     
