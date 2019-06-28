@@ -20,14 +20,14 @@ return (
                 name="name"
                 placeholder="(ex. Milk)"className="input-group-field nameInput" type="text"/>
           </div>
-          <div className="columns medium-1">
+          <div className="columns medium-2">
             <span className="input-group-label">Unit:</span>
             <input 
             onChange={props.handleInputChange}
             name="unit"
             placeholder="(ex. Gallon)"className="input-group-field unitInput" type="text"/>
           </div>
-          <div className="columns medium-1">
+          <div className="columns medium-2">
             <span className="input-group-label">Qty:</span>
             <input 
                 onChange={props.handleInputChange}
@@ -36,13 +36,12 @@ return (
           </div>
           <div className="columns medium-3">
             <span className="input-group-label">Expires:</span>
-            <input 
-            
+            <input
             onChange={props.handleInputChange}
             name="expireDate"
             placeholder="(mm/dd/yy) "className="input-group-field expiresInput" type="date"/>
           </div>
-          <div className="columns medium-2"></div>
+          <div className="columns medium-0"></div>
           
         </div>
         <div className="row">
