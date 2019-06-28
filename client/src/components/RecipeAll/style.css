@@ -15,7 +15,8 @@
 
 .scrolling {
     height: 250px;
-    overflow: scroll;
+    width: auto;
+    overflow-y: scroll;
 }
 
 .imaging {

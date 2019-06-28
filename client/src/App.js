@@ -184,7 +184,7 @@ class App extends Component {
                         );
                       })}
                       <br />
-                      <div className="columns medium-1 centering" />
+                      
                     </RecipeAll>
                 </PrivateRoute>
               </Switch>
