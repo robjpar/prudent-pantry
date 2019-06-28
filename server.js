@@ -38,11 +38,19 @@ app.use(passport.initialize());
 require("./config/passport")(passport);
 // Auth Route
 app.use("/api/users", users);
+// server static assets if in production
+if(process.env.NODE_ENV === 'production')
+{
+  // set static folder
+  app.use(express.static('client/build'));
+  app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+  }); 
+}
 
 // Routing
 require("./routes/api-routes.js")(app);
 require("./routes/html-routes.js")(app);
-
 
 // Start the server
 const port = process.env.PORT || 3001;
