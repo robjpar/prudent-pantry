@@ -33,11 +33,6 @@ app.use(passport.initialize());
 require("./config/passport")(passport);
 // Auth Route
 app.use("/api/users", users);
-<<<<<<< HEAD
-// set static folder
-app.use(express.static(__dirname, 'client', 'build'));
-=======
->>>>>>> 72d9623d1e387aa920dfc3fb8881feda7e9ab3d6
 
 // Routing
 app.use(routes);
