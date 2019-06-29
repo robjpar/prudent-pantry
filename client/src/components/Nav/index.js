@@ -14,19 +14,19 @@ return (
 <nav className="top-bar topbar-responsive roundy">
   <div className="row">
     <div className="columns small-2 medium-1">
-      <FontAwesomeIcon className="icon" icon={faBreadSlice} size="md"/>
+      <FontAwesomeIcon className="icon" icon={faBreadSlice} size="lg"/>
     </div>
     <div className="columns small-2 medium-1">
-      <FontAwesomeIcon className="icon" icon={faEgg} size="md"/>
+      <FontAwesomeIcon className="icon" icon={faEgg} size="lg"/>
     </div>
     <div className="columns small-4 medium-8">
       <h3>Prudent Pantry</h3>
     </div>
     <div className="columns small-2 medium-1">
-      <FontAwesomeIcon className="icon" icon={faCarrot} size="md"/>
+      <FontAwesomeIcon className="icon" icon={faCarrot} size="lg"/>
     </div>
     <div className="columns small-2 medium-1">
-      <FontAwesomeIcon className="icon" icon={faFish} size="md"/>
+      <FontAwesomeIcon className="icon" icon={faFish} size="lg"/>
     </div>
   </div>
 </nav>

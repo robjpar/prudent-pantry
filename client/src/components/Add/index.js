@@ -34,26 +34,32 @@ return (
                 name="qty"
                 className="input-group-field qtyInput" type="number"/>
           </div>
-          <div className="columns medium-3">
-            <span className="input-group-label">Expires:</span>
+          <div className="columns medium-5">
+            <span className="input-group-label expiresLabel">Expires:</span>
             <input
             onChange={props.handleInputChange}
             name="expireDate"
-            placeholder="(mm/dd/yy) "className="input-group-field expiresInput" type="date"/>
+            placeholder="(mm/dd/yy) "className="input-group-field expiresInput" type="date" style={{textAlign:'center'}}/>
           </div>
           <div className="columns medium-0"></div>
           
         </div>
         <div className="row">
-          <fieldset className="large-7 card centering">
-                <legend>Add food item to:</legend>
-                <input type="radio" onChange={props.handleInputChange} name="storePlace" value="pantry" id="pokemonRed" required/><label htmlFor="pokemonRed">pantry</label>
-                <input type="radio" onChange={props.handleInputChange} name="storePlace" value="fridge" id="pokemonBlue"/><label htmlFor="pokemonBlue">fridge</label>
-                <input type="radio" onChange={props.handleInputChange} name="storePlace" value="freezer" id="pokemonYellow"/><label htmlFor="pokemonYellow">freezer</label>
-              </fieldset>
-              <div className="input-group-button">
-              <input type="submit" onClick={props.handleFormSubmit} className="button buttonInput" value="Submit"/>
-          </div>
+        <div className="centering">
+          <i className="fas fa-utensil-spoon" alt="spoon" />
+          <h5 className="shadowing centering">Add food item to:</h5>
+          <i className="fas fa-utensil-spoon" alt="spoon" />
+        </div>
+        <div className="centering">
+          <fieldset className="large-12 card centering">
+            <input className="addOption" type="radio" onChange={props.handleInputChange} name="storePlace" value="pantry" id="pokemonRed" required/><label htmlFor="pokemonRed">pantry</label>
+            <input className="addOption" type="radio" onChange={props.handleInputChange} name="storePlace" value="fridge" id="pokemonBlue"/><label htmlFor="pokemonBlue">fridge</label>
+            <input className="addOption" type="radio" onChange={props.handleInputChange} name="storePlace" value="freezer" id="pokemonYellow"/><label htmlFor="pokemonYellow">freezer</label>
+          </fieldset>
+        </div>
+        <div className="input-group-button">
+          <input type="submit" onClick={props.handleFormSubmit} className="buttonInput button" value="Submit"/>
+        </div>
         </div> 
     </form>
   </div>

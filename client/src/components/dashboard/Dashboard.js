@@ -14,13 +14,15 @@ render() {
     }
 return (
       <div style={{ height: "10vh" }} className="container valign-wrapper">
-        <div className="row">
-          <div className="col s12 center-align">
+        <div className="container valign-wrapper">
+          <div className="container valign-wrapper">
             <h6>
-              Hey there,<b> {user.name.split(" ")[0]}</b>
+              <span style={{float:'left'}}>
+                Hey there,<b> {user.name.split(" ")[0]}</b>
+              </span>
               <button
               style={{
-                width: "150px",
+                width: "70px",
                 borderRadius: "3px",
                 letterSpacing: "1.5px",
                 marginTop: "5px",

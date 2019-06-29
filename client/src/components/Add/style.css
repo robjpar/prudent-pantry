@@ -1,5 +1,9 @@
+input {
+    height: 80px !important;
+}
 .centering {
     text-align: center;
+    padding: 5px;
 
 }
 .middling {
@@ -26,4 +30,20 @@
 .input-group-label {
     color: white;
     background:#219875
+}
+.expiresLabel {
+    float: left;
+    width: 100%;
+    
+}
+.expiresInput {
+    float: left;
+    width: 100%;
+}
+.addOption {
+    height: 10px !important;
+}
+.buttonInput{
+    height: 48px !important;
+    background-color: #219875 !important;
 }
