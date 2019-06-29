@@ -43,3 +43,7 @@ input {
 .addOption {
     height: 10px !important;
 }
+.buttonInput{
+    height: 48px !important;
+    background-color: #219875 !important;
+}

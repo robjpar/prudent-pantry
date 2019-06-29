@@ -50,14 +50,16 @@ return (
           <h5 className="shadowing centering">Add food item to:</h5>
           <i className="fas fa-utensil-spoon" alt="spoon" />
         </div>
-        <fieldset className="large-7 card centering addOption">
-          <input type="radio" onChange={props.handleInputChange} name="storePlace" value="pantry" id="pokemonRed" required/><label htmlFor="pokemonRed">pantry</label>
-          <input type="radio" onChange={props.handleInputChange} name="storePlace" value="fridge" id="pokemonBlue"/><label htmlFor="pokemonBlue">fridge</label>
-          <input type="radio" onChange={props.handleInputChange} name="storePlace" value="freezer" id="pokemonYellow"/><label htmlFor="pokemonYellow">freezer</label>
-        </fieldset>
-          <div className="input-group-button">
-            <input type="submit" onClick={props.handleFormSubmit} className="button buttonInput" value="Submit"/>
-          </div>
+        <div className="centering">
+          <fieldset className="large-12 card centering">
+            <input className="addOption" type="radio" onChange={props.handleInputChange} name="storePlace" value="pantry" id="pokemonRed" required/><label htmlFor="pokemonRed">pantry</label>
+            <input className="addOption" type="radio" onChange={props.handleInputChange} name="storePlace" value="fridge" id="pokemonBlue"/><label htmlFor="pokemonBlue">fridge</label>
+            <input className="addOption" type="radio" onChange={props.handleInputChange} name="storePlace" value="freezer" id="pokemonYellow"/><label htmlFor="pokemonYellow">freezer</label>
+          </fieldset>
+        </div>
+        <div className="input-group-button">
+          <input type="submit" onClick={props.handleFormSubmit} className="buttonInput button" value="Submit"/>
+        </div>
         </div> 
     </form>
   </div>
