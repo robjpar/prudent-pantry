@@ -1,3 +1,19 @@
+h1, h3 {
+  color: yellow;
+  text-align: center;
+  
+
+}
+
+.icon {
+  color: yellow;
+  text-align: center;
+  margin-top:20px
+
+}
+
+
+
 .topbar-responsive {
     background: #034732;
     padding: 1rem 1.5rem;
