@@ -1,17 +1,19 @@
 const axios = require('axios');
+require('dotenv').config();
 
 module.exports = {
   // Get recipes for given list of ingredients
   // Example of the query of the request:
   // /api/recipes?q=chicken,eggs,cheese
   find: function(req, res) {
+    const url = 'https://api.edamam.com/search';
+    const params = {
+      q: req.query.q,
+      app_id: process.env.APP_ID,
+      app_key: process.env.APP_KEY
+    };
     axios
-      .get(
-        'https://api.edamam.com/search?app_id=d1219d60&app_key=edf5e4d50fb0abcd48b0f405e76f4b6e',
-        {
-          params: req.query
-        }
-      )
+      .get(url, { params: params })
       .then(function(response) {
         res.json(response.data.hits);
       })
