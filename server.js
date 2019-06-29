@@ -2,6 +2,7 @@ const express = require("express");
 const path = require("path");
 const bodyParser = require("body-parser");
 const passport = require("passport");
+const routes = require('./routes');
 const users = require("./routes/api/users");
 
 // Connect to MongoDB
@@ -34,8 +35,7 @@ require("./config/passport")(passport);
 app.use("/api/users", users);
 
 // Routing
-require("./routes/api-routes.js")(app);
-require("./routes/html-routes.js")(app);
+app.use(routes);
 
 // Start the server
 const port = process.env.PORT || 3001;
