@@ -1,5 +1,21 @@
+h1, h3 {
+  color: yellow;
+  text-align: center;
+  
+
+}
+
+.icon {
+  color: yellow;
+  text-align: center;
+  margin-top:20px
+
+}
+
+
+
 .topbar-responsive {
-    background: #2c3840;
+    background: #034732;
     padding: 1rem 1.5rem;
   }
   
@@ -9,7 +25,7 @@
   }
   
   .topbar-responsive .menu {
-    background: #2c3840;
+    background: #034732;
   }
   
   .topbar-responsive .menu li:last-of-type {

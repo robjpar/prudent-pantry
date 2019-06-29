@@ -1,20 +1,21 @@
 {
   "name": "prudent-pantry",
   "version": "1.0.0",
-  "description": "Prudent Pantry MERN Stack App",
+  "description": "MERN Stack Web App",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "install": "cd client && npm install",
-    "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
-    "start:prod": "node server.js",
-    "start:dev": "concurrently \"nodemon server.js\" \"npm run client\"",
+    "server": "nodemon server.js",
     "client": "cd client && npm start",
+    "start:prod": "node server.js",
+    "start:dev": "concurrently \"npm run server\" \"npm run client\"",
+    "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
     "build": "cd client && npm run build",
-    "heroku-postbuild": "cd client && npm install --only=dev && npm install && npm run build"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "engines": {
-    "node": "10.15.3"
+    "node": "10.15.3",
+    "npm": "6.9.0"
   },
   "nodemonConfig": {
     "ignore": [
@@ -38,9 +39,13 @@
   },
   "homepage": "https://github.com/robjpar/prudent-pantry#readme",
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.19",
+    "@fortawesome/free-solid-svg-icons": "^5.9.0",
+    "@fortawesome/react-fontawesome": "^0.1.4",
+    "axios": "^0.19.0",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
-    "axios": "^0.19.0",
+    "dotenv": "^8.0.0",
     "express": "^4.17.1",
     "if-env": "^1.0.4",
     "is-empty": "^1.2.0",

@@ -59,7 +59,7 @@ class Login extends React.Component {
         <h2>log in</h2>
         
         <div className="floated-label-wrapper">
-          <label for="email">email</label>
+          <label htmlFor="email">email</label>
           <input
             onChange={this.onChange}
             value={this.state.email}
@@ -78,7 +78,7 @@ class Login extends React.Component {
           </span>
         </div>
         <div className="floated-label-wrapper">
-          <label for="pass">password</label>
+          <label htmlFor="pass">password</label>
           <input
             onChange={this.onChange}
             value={this.state.password}

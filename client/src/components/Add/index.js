@@ -6,10 +6,10 @@ function Add (props) {
 
 return ( 
   <div>
-    <div classname="centering">
-      <i class="fas fa-utensil-spoon" alt="spoon" />
+    <div className="centering">
+      <i className="fas fa-utensil-spoon" alt="spoon" />
       <h5 className="shadowing centering">Add Item:</h5>
-      <i class="fas fa-utensil-spoon" alt="spoon" />
+      <i className="fas fa-utensil-spoon" alt="spoon" />
     </div>
     <form className="input-group groupInput">
         <div className="row">
@@ -36,12 +36,12 @@ return (
           </div>
           <div className="columns medium-3">
             <span className="input-group-label">Expires:</span>
-            <input 
-            
+            <input
             onChange={props.handleInputChange}
             name="expireDate"
             placeholder="(mm/dd/yy) "className="input-group-field expiresInput" type="date"/>
           </div>
+          <div className="columns medium-0"></div>
           
         </div>
         <div className="row">
