@@ -16,14 +16,15 @@ app.use(
   })
 );
 app.use(bodyParser.json());
-
 app.use(
   express.urlencoded({
     extended: true
   })
 );
 app.use(express.json());
-app.use(express.static(path.join(__dirname, "client", "build")));
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static(path.join(__dirname, 'client', 'build')));
+}
 
 // Passport middleware
 app.use(passport.initialize());
@@ -32,7 +33,6 @@ require("./config/passport")(passport);
 // Auth Route
 app.use("/api/users", users);
 
-
 // Routing
 require("./routes/api-routes.js")(app);
 require("./routes/html-routes.js")(app);
@@ -40,5 +40,5 @@ require("./routes/html-routes.js")(app);
 // Start the server
 const port = process.env.PORT || 3001;
 app.listen(port, function() {
-  console.log(`Server ${__filename} listening on http://localhost:${port}`);
+  console.log(`Server ${__filename} listening on port ${port}`);
 });
