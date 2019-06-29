@@ -59,7 +59,7 @@ render () {
       <form className="callout text-center" noValidate onSubmit={this.onSubmit}>
         <h2>sign up</h2>
         <div className="floated-label-wrapper">
-          <label for="full-name">full name</label>
+          <label htmlFor="full-name">full name</label>
           <input 
             onChange={this.onChange}
             value={this.state.name}
@@ -75,7 +75,7 @@ render () {
           <span className="red-text">{errors.name}</span>
         </div>
         <div className="floated-label-wrapper">
-          <label for="email">email</label>
+          <label htmlFor="email">email</label>
           <input
             onChange={this.onChange}
             value={this.state.email}
@@ -91,7 +91,7 @@ render () {
           <span className="red-text">{errors.email}</span>
         </div>
         <div className="floated-label-wrapper">
-          <label for="pass">password</label>
+          <label htmlFor="pass">password</label>
           <input
             onChange={this.onChange}
             value={this.state.password}
@@ -107,7 +107,7 @@ render () {
           <span className="red-text">{errors.password}</span>
         </div>
         <div className="floated-label-wrapper">
-          <label for="pass">confirm password</label>
+          <label htmlFor="pass">confirm password</label>
           <input
             onChange={this.onChange}
             value={this.state.password2}

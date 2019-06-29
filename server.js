@@ -1,18 +1,12 @@
-const mongoose = require("mongoose");
 const express = require("express");
 const path = require("path");
 const bodyParser = require("body-parser");
 const passport = require("passport");
+const routes = require('./routes');
 const users = require("./routes/api/users");
 
-// Link to mLab MongoDB (Heroku) or local MongoDB
-const MONGODB_URI =
-  process.env.MONGODB_URI || "mongodb://localhost/prudent_pantry_db";
-
-// Connect to the Mongo DB
-mongoose.connect(MONGODB_URI, {
-  useNewUrlParser: true
-});
+// Connect to MongoDB
+require('./config/connection');
 
 // Server configuration
 const app = express();
@@ -23,14 +17,15 @@ app.use(
   })
 );
 app.use(bodyParser.json());
-
 app.use(
   express.urlencoded({
     extended: true
   })
 );
 app.use(express.json());
-app.use(express.static(path.join(__dirname, "client", "build")));
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static(path.join(__dirname, 'client', 'build')));
+}
 
 // Passport middleware
 app.use(passport.initialize());
@@ -39,13 +34,11 @@ require("./config/passport")(passport);
 // Auth Route
 app.use("/api/users", users);
 
-
 // Routing
-require("./routes/api-routes.js")(app);
-require("./routes/html-routes.js")(app);
+app.use(routes);
 
 // Start the server
 const port = process.env.PORT || 3001;
 app.listen(port, function() {
-  console.log(`Server ${__filename} listening on http://localhost:${port}`);
+  console.log(`Server ${__filename} listening on port ${port}`);
 });

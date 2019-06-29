@@ -1,6 +1,6 @@
 import React from 'react';
 import './style.css';
-import RecipeItem from '../RecipeItem';
+// import RecipeItem from '../RecipeItem';
 
 
 function RecipeAll ({children}) {
