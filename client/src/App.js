@@ -53,7 +53,8 @@ class App extends Component {
     unit: "",
     storePlace: "",
     dateIn: "",
-    itemsToSearch: []
+    itemsToSearch: [],
+    userId: ""
   };
 
   handleToggleChange = event => {
@@ -67,31 +68,26 @@ class App extends Component {
 
     this.setState({ itemsToSearch: recipeSearchItems });
   };
-
-  // When the component mounts, load all foods and save them to this.state.foods
-  componentDidMount() {
-    this.loadFoods();
-  }
-
-  // Loads all foods  and sets them to this.state.foodss
-  loadFoods = () => {
-    API.getInventory()
-      .then(res => {
-        this.setState({
-          inventory: res.data
+  
+  // Loads all foods  and sets them to this.state.foods
+  loadFoods = userId => {
+    API.getInventory(userId)
+    .then(res => {
+      this.setState({
+        inventory: res.data
         });
       })
       .catch(err => console.log(err));
-  };
-
+    };
+    
   // Deletes a food from the database with a given id, then reloads foods from the db
   deleteFood = id => {
     console.log("delete");
     API.deleteFood(id)
-      .then(res => this.loadFoods())
-      .catch(err => console.log(err));
+    .then(res => this.loadFoods(this.state.userId))
+    .catch(err => console.log(err));
   };
-
+  
   // Handles updating component state when the user types into the input field
   handleInputChange = event => {
     const { name, value } = event.target;
@@ -99,35 +95,41 @@ class App extends Component {
       [name]: value
     });
   };
-
+  
   handleFormSubmit = event => {
     event.preventDefault();
-
+    
     API.saveItem({
       name: this.state.name,
       expireDate: this.state.expireDate,
       qty: this.state.qty,
       unit: this.state.unit,
       storePlace: [{ name: this.state.storePlace }],
-      dateIn: new Date()
+      dateIn: new Date(),
+      userId: this.state.userId
     })
-      .then(res => this.loadFoods())
-      .catch(err => console.log(err));
+    .then(res => this.loadFoods(this.state.userId))
+    .catch(err => console.log(err));
     //}
   };
-
+  
   handleClick = event => {
     event.preventDefault();
     console.log("click");
     API.getRecipes(this.state.itemsToSearch.join()).then(res =>
       this.setState({ recipes: res.data })
-    );
-    console.log(this.state.recipes);
-  };
-
-  render() {
-    return (
-      <Provider store={store}>
+      );
+      console.log(this.state.recipes);
+    };
+    
+  // When the user id is available, load all inventory items and save them to this.state.inventory
+  handleUserId = (userId) => {
+    this.setState({userId}, () => this.loadFoods(this.state.userId));
+  }
+    
+    render() {
+      return (
+        <Provider store={store}>
         <Router>
             <Container>
               <Nav />
@@ -136,7 +138,7 @@ class App extends Component {
               <Route exact path="/login" component={Login} />
               <Switch>
                 <PrivateRoute exact path="/dashboard" component={Dashboard}>
-                  <Dashboard />
+                  <Dashboard onLogin={this.handleUserId}/>
                   <Add
                     handleInputChange={this.handleInputChange}
                     handleFormSubmit={this.handleFormSubmit}
