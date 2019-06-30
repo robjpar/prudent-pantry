@@ -14,9 +14,10 @@
 }
 
 .scrolling {
-    height: 250px;
+    height: 280px !important;
     width: auto;
-    overflow-y: scroll;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
 }
 
 .imaging {
