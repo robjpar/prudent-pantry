@@ -53,7 +53,7 @@ class App extends Component {
     unit: "",
     storePlace: "",
     dateIn: "",
-    itemsToSearch: ""
+    itemsToSearch: []
   };
 
   handleToggleChange = event => {
