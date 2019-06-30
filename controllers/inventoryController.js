@@ -1,10 +1,13 @@
+const mongoose = require('mongoose');
 const db = require('../models');
 
 module.exports = {
-  // Get the inventory
+  // Get the inventory for given user
   findAll: function(req, res) {
     db.inventory
-      .find({})
+      .find({
+        userId: mongoose.Types.ObjectId(req.params.user_id)
+      })
       .populate('storePlace')
       .sort({ expireDate: 1 })
       .then(function(inventory) {
@@ -22,7 +25,8 @@ module.exports = {
   //   qty: 1,
   //   unit: 'gal',
   //   storePlace: [ { name: 'refrigerator' } ],
-  //   dateIn: '2019-06-14T01:48:21.458Z'
+  //   dateIn: '2019-06-14T01:48:21.458Z',
+  //   userId: '5d1582b6a6c28915d89c457d'
   // }
   create: function(req, res) {
     db.storages
@@ -35,7 +39,8 @@ module.exports = {
         return db.inventory.findOneAndUpdate(
           {
             name: req.body.name,
-            expireDate: req.body.expireDate
+            expireDate: req.body.expireDate,
+            userId: mongoose.Types.ObjectId(req.body.userId)
           },
           {
             $set: {
@@ -43,7 +48,8 @@ module.exports = {
               expireDate: req.body.expireDate,
               qty: req.body.qty,
               unit: req.body.unit,
-              dateIn: req.body.dateIn
+              dateIn: req.body.dateIn,
+              userId: mongoose.Types.ObjectId(req.body.userId)
             },
             $push: {
               storePlace: storage._id
