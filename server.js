@@ -4,6 +4,7 @@ const bodyParser = require("body-parser");
 const passport = require("passport");
 const routes = require('./routes');
 const users = require("./routes/api/users");
+const ip = require("ip");
 
 // Connect to MongoDB
 require('./config/connection');
@@ -40,5 +41,6 @@ app.use(routes);
 // Start the server
 const port = process.env.PORT || 3001;
 app.listen(port, function() {
-  console.log(`Server ${__filename} listening on port ${port}`);
+  // eslint-disable-next-line no-console
+  console.log(`Server ${__filename} listening on ${ip.address()}:${port}`);
 });
