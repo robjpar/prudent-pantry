@@ -11,6 +11,7 @@
     "start:dev": "concurrently \"npm run server\" \"npm run client\"",
     "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
     "build": "cd client && npm run build",
+    "prod": "cross-env NODE_ENV=production npm start",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "engines": {
@@ -58,6 +59,7 @@
   },
   "devDependencies": {
     "concurrently": "^4.1.0",
+    "cross-env": "^5.2.0",
     "eslint": "^5.16.0",
     "nodemon": "^1.19.1"
   }
