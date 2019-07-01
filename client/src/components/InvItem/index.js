@@ -30,10 +30,10 @@ return (
             </div>
             
             <div className="columns small-0 medium-2 inv-datein small-hide">
-                <span>date in:{props.dateIn}</span>
+                <span>date in: {props.dateIn}</span>
             </div>
     <div className="columns small-2 medium-2 inv-expires">
-        <span className="tiny-text">{props.expireDate}</span>
+        <span className="tiny-text">expiry date: {props.expireDate}</span>
     </div>
             
     <div className="columns small-2 medium-1 inv-x">

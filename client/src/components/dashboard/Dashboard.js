@@ -11,15 +11,17 @@ render() {
     const { user } = this.props.auth;
     if (!user.name) {        
         window.location.replace("../");;
+    } else {
+      this.props.onLogin(user.id);
     }
 return (
       <div style={{ height: "10vh" }} className="container valign-wrapper">
         <div className="container valign-wrapper">
           <div className="container valign-wrapper">
             <h6>
-              <span style={{float:'left'}}>
+              <p style={{float:'left'}}>
                 Hey there,<b> {user.name.split(" ")[0]}</b>
-              </span>
+              </p>
               <button
               style={{
                 width: "70px",
