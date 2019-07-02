@@ -8,9 +8,9 @@ function RecipeAll ({children}) {
 
 return (
   <div>
-    <h5 className="shadowing">Recipes</h5>
+    <h5 className="shadowing">Search Recipes</h5>
     <ul className="list">
-        <div className="container scrolling middling bordering" >{children}</div>
+        <div className="container scrollingers middling bordering shadow" >{children}</div>
     </ul>
   </div>    
     );

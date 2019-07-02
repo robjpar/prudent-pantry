@@ -48,19 +48,20 @@ return (
         <div className="row">
         <div className="centering">
           <i className="fas fa-utensil-spoon" alt="spoon" />
-          <h5 className="shadowing centering">Add food item to:</h5>
+          <h5 className="shadowing centering-too">Add food item to:</h5>
           <i className="fas fa-utensil-spoon" alt="spoon" />
         </div>
         <div className="centering">
-          <fieldset className="large-12 card centering">
+          <fieldset className="large-12">
             <input className="addOption" type="radio" onChange={props.handleInputChange} name="storePlace" value="pantry" id="pokemonRed" required/><label htmlFor="pokemonRed">pantry</label>
             <input className="addOption" type="radio" onChange={props.handleInputChange} name="storePlace" value="fridge" id="pokemonBlue"/><label htmlFor="pokemonBlue">fridge</label>
             <input className="addOption" type="radio" onChange={props.handleInputChange} name="storePlace" value="freezer" id="pokemonYellow"/><label htmlFor="pokemonYellow">freezer</label>
           </fieldset>
         </div>
-        <div className="input-group-button">
-          <input type="submit" onClick={props.handleFormSubmit} className="buttonInput button" value="Submit"/>
+        <div className="input-group-button pad-button">
+          <input type="submit" onClick={props.handleFormSubmit} className="buttonInput button" value="Add Item"/>
         </div>
+   
         </div> 
     </form>
   </div>

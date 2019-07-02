@@ -1,9 +1,14 @@
 input {
-    height: 80px !important;
+    height: 40px !important;
 }
 .centering {
     text-align: center;
-    padding: 5px;
+  
+  }
+.centering-too {
+    text-align: center;
+    padding: 10px 5px 0px 5px;
+    margin-bottom:0px;
 
 }
 .middling {
@@ -46,4 +51,9 @@ input {
 .buttonInput{
     height: 48px !important;
     background-color: #219875 !important;
+}
+
+.pad-button {
+    margin-top: 0px;
+    margin-bottom: 0px;
 }
