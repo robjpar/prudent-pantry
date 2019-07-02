@@ -5,6 +5,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { registerUser } from "../../actions/authActions";
 import classnames from "classnames";
+import Nav from "../Nav";
 // import { Switch } from 'react-foundation';
 
 
@@ -56,6 +57,7 @@ render () {
   const { errors } = this.state;
   return ( 
     <div>
+    <Nav />  
       <form className="callout text-center" noValidate onSubmit={this.onSubmit}>
         <h2>sign up</h2>
         <div className="floated-label-wrapper">

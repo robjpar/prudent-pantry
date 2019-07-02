@@ -2,11 +2,11 @@ import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.css";
 import Container from "./components/Container";
-import Nav from "./components/Nav";
 import Add from "./components/Add";
 import InvAll from "./components/InvAll";
 import RecipeAll from "./components/RecipeAll";
 import InvItem from "./components/InvItem";
+// import InvAlert from "./components/InvAlert";
 import API from "./utils/api-routes.js";
 import RecipeItem from "./components/RecipeItem";
 
@@ -19,7 +19,7 @@ import Signup from "./components/Signup";
 import store from "./store";
 import PrivateRoute from "./components/private-route/PrivateRoute";
 import Dashboard from "./components/dashboard/Dashboard";
-
+import Breadcrumbs from "./components/Breadcrumbs";
 
 // Check for token to keep user logged in
 if (localStorage.jwtToken) {
@@ -54,7 +54,8 @@ class App extends Component {
     storePlace: "",
     dateIn: "",
     itemsToSearch: [],
-    userId: ""
+    userId: "",
+    currentPage: "Add"
   };
 
   handleToggleChange = event => {
@@ -95,7 +96,8 @@ class App extends Component {
       [name]: value
     });
   };
-  
+
+  // Add Item and Add/Submit buttons
   handleFormSubmit = event => {
     event.preventDefault();
     
@@ -112,84 +114,125 @@ class App extends Component {
     .catch(err => console.log(err));
     //}
   };
-  
+
+  handleFormSubmitTwo = event => {
+    event.preventDefault();
+    this.handlePageChange("InvAll");
+
+  };
+
   handleClick = event => {
     event.preventDefault();
     console.log("click");
+    if(this.state.itemsToSearch.length < 1 || this.state.itemsToSearch.length === undefined){
+   
+      alert("please select ingredients");
+      return;
+    } else {
+    this.handlePageChange("RecipeAll");
     API.getRecipes(this.state.itemsToSearch.join()).then(res =>
       this.setState({ recipes: res.data })
-      );
-      console.log(this.state.recipes);
-    };
-    
+    );
+    console.log(this.state.recipes);}
+  };
+
   // When the user id is available, load all inventory items and save them to this.state.inventory
   handleUserId = (userId) => {
     this.setState({userId}, () => this.loadFoods(this.state.userId));
   }
-    
-    render() {
-      return (
-        <Provider store={store}>
+
+  // Router for Add/InvAll/RecipeAll
+  handlePageChange = page => {
+    this.setState({ currentPage: page });
+  };
+
+  // All the content of Add/Inv/Recipe is in renderPage()
+  renderPage = () => {
+    if (this.state.currentPage === "Add") {
+      return <div><Add
+      handleInputChange={this.handleInputChange}
+      handleFormSubmit={this.handleFormSubmit}
+    />
+    <div className="input-group-button pad-button">
+    <input type="submit" onClick={this.handleFormSubmitTwo} className="button" value="See List"/>
+  </div></div>;
+    } else if (this.state.currentPage === "InvAll") {
+      return <div>
+        <InvAll>
+      {this.state.inventory.map(item => {
+        return (
+          <InvItem
+            key={item._id}
+            id={item._id}
+            name={item.name}
+            qty={item.qty["$numberDecimal"]}
+            unit={item.unit}
+            expireDate={new Date(
+              item.expireDate
+            ).toLocaleDateString()}
+            storePlace={item.storePlace[0].name}
+            dateIn={new Date(item.dateIn).toLocaleDateString()}
+            deleteFood={this.deleteFood}
+            handleClick={this.handleClick}
+            handleFormSubmit={this.handleFormSubmit}
+            toggle={this.toggle}
+            handleToggleChange={this.handleToggleChange}
+          />
+        );
+      })}
+    </InvAll>
+    {/* Search Recipe Button */}
+    <input
+    className="button z-button centering searchRecipes"
+    value="Search Recipes"
+    type="submit"
+    onClick={this.handleClick}
+    /></div>;
+    } else if (this.state.currentPage === "RecipeAll") {
+      return <div><RecipeAll>
+      {this.state.recipes.map(item => {
+        return (
+          <RecipeItem
+            key={item.recipe.uri}
+            name={item.recipe.label}
+            href={item.recipe.shareAs}
+            src={item.recipe.image}
+            calories={item.recipe.calories}
+            fat={item.recipe.totalNutrients.FAT.quantity}
+            protein={item.recipe.totalNutrients.PROCNT.quantity}
+            carbs={item.recipe.totalNutrients.CHOCDF.quantity}
+          />
+        );
+      })}
+      <br />
+      
+    </RecipeAll>
+    </div>;
+    } else {
+      return <InvAll />;
+    }
+  };
+
+  render() {
+    return (
+      <Provider store={store}>
         <Router>
             <Container>
-              <Nav />
+              {/* <InvAlert /> */}
+              
               <Route exact path="/" component={Login} />
               <Route exact path="/signup" component={Signup} />
               <Route exact path="/login" component={Login} />
               <Switch>
                 <PrivateRoute exact path="/dashboard" component={Dashboard}>
                   <Dashboard onLogin={this.handleUserId}/>
-                  <Add
-                    handleInputChange={this.handleInputChange}
-                    handleFormSubmit={this.handleFormSubmit}
-                  />
-                  <InvAll>
-                    {this.state.inventory.map(item => {
-                      return (
-                        <InvItem
-                          key={item._id}
-                          id={item._id}
-                          name={item.name}
-                          qty={item.qty["$numberDecimal"]}
-                          unit={item.unit}
-                          expireDate={new Date(
-                            item.expireDate
-                          ).toLocaleDateString()}
-                          storePlace={item.storePlace[0].name}
-                          dateIn={new Date(item.dateIn).toLocaleDateString()}
-                          deleteFood={this.deleteFood}
-                          handleClick={this.handleClick}
-                          handleFormSubmit={this.handleFormSubmit}
-                          toggle={this.toggle}
-                          handleToggleChange={this.handleToggleChange}
-                        />
-                      );
-                    })}
-                  </InvAll>
-                  <input
-                    className="button z-button centering searchRecipes"
-                    value="Search Recipes"
-                    type="submit"
-                    onClick={this.handleClick}
-                  />
-                  <RecipeAll>
-                      {this.state.recipes.map(item => {
-                        return (
-                          <RecipeItem
-                            key={item.recipe.uri}
-                            name={item.recipe.label}
-                            href={item.recipe.shareAs}
-                            src={item.recipe.image}
-                            calories={item.recipe.calories}
-                            fat={item.recipe.totalNutrients.FAT.quantity}
-                            protein={item.recipe.totalNutrients.PROCNT.quantity}
-                            carbs={item.recipe.totalNutrients.CHOCDF.quantity}
-                          />
-                        );
-                      })}
-                      <br />
-                      
-                    </RecipeAll>
+                  <Breadcrumbs
+                  currentPage={this.state.currentPage}
+                  handlePageChange={this.handlePageChange} />
+                  
+                  {/* Breadcrumb menu selects Add/Inv/Recipe here */}
+                  {this.renderPage()}
+                  
                 </PrivateRoute>
               </Switch>
             </Container>

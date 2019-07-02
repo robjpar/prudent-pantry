@@ -7,10 +7,9 @@
 
 }
 
-.scrolling {
-    height: 250px;
-    overflow-y: auto !important;
-    overflow-x: hidden !important;
+.scrollinger {
+    height: 350px;
+    overflow: scroll;
 }
 .shadow {
     -moz-box-shadow:    2px 0px 2px 0px #ccc;
