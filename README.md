@@ -30,7 +30,9 @@ No installation is needed. Access the deployed website with a web browser throug
 
 ## Usage
 
-Follow the on-screen instructions.
+Follow the on-screen instructions. A typical session is shown below.
+
+![usage](images/usage.gif 'Usage')
 
 ## License
 
