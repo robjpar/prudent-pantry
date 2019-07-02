@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { loginUser } from "../../actions/authActions";
 import classnames from "classnames";
+import Nav from "../Nav";
 // import { Switch } from 'react-foundation';
 
 
@@ -55,6 +56,7 @@ class Login extends React.Component {
   return ( 
     
     <div>
+      <Nav />
       <form className="callout text-center" noValidate onSubmit={this.onSubmit}>
         <h2>log in</h2>
         

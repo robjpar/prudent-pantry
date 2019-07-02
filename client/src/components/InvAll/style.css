@@ -7,8 +7,8 @@
 
 }
 
-.scrolling {
-    height: 250px;
+.scrollinger {
+    height: 350px;
     overflow-y: auto !important;
     overflow-x: hidden !important;
 }

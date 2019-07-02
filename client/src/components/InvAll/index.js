@@ -8,9 +8,9 @@ export default function InvAll({ children }) {
         <div className="row">
           
           <div className="columns medium-12 centering">
-            <h5 className="shadowing">Inventory</h5>
+            <h5 className="shadowing">Pick Ingredients</h5>
               <ul className="list">
-                <div className="container scrolling">{children}</div>
+                <div className="container scrollinger shadow">{children}</div>
             </ul>
           </div>
         </div>
