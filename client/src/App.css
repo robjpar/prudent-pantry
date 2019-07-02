@@ -8,10 +8,12 @@
 
 }
 
-
-
 .itemrow {
   padding: 10px;
+}
+
+h4 {
+  font-weight: bold;
 }
 
 .scrolling {
@@ -27,3 +29,4 @@ width: 80px;
 .fonting {
   font-family: 'Work Sans', sans-serif;
 }
+

@@ -11,7 +11,7 @@ function Nav (props) {
 
 return (
 
-<nav className="top-bar topbar-responsive roundy">
+<nav className="top-bar topbar-responsive">
   <div className="row">
     <div className="columns small-2 medium-1">
       <FontAwesomeIcon className="icon" icon={faBreadSlice} size="lg"/>

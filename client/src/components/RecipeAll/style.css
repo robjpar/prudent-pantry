@@ -13,8 +13,8 @@
     padding: 10px;
 }
 
-.scrolling {
-    height: 250px;
+.scrollingers {
+    height: 400px;
     width: auto;
     overflow-y: scroll;
 }
@@ -33,3 +33,9 @@ h1,h2,h3,h4,h5,h6,body {
     1px -1px 0 #eeeeee
       
 }
+
+.shadow {
+    -moz-box-shadow:    2px 0px 2px 0px #ccc;
+    -webkit-box-shadow: 2px 0px 0px 0px #ccc;
+    box-shadow:         1px 2px 3px 1px #ccc;
+  }

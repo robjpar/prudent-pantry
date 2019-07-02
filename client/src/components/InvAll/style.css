@@ -7,8 +7,8 @@
 
 }
 
-.scrolling {
-    height: 250px;
+.scrollinger {
+    height: 350px;
     overflow: scroll;
 }
 .shadow {
