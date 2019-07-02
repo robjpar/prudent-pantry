@@ -10,7 +10,7 @@ return (
 
 <div className="row itemrow bordering">
     <div className="columns medium-3 bordering">
-        <a href={props.href}><img src={props.src}  alt={props.name}></img></a>
+        <a href={props.href} target="_blank" rel="noopener noreferrer"><img src={props.src}  alt={props.name}></img></a>
     </div>
     {/* <div className="columns medium-2 bordering">
         <span>qty: </span>
