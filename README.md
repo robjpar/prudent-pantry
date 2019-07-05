@@ -15,7 +15,8 @@ The Prudent Pantry is a web applications that tracks the inventory of your house
 ## Technologies & Frameworks
 
 - React, React Router, ZURB Foundation
-- Node.js, Express
+- JavaScript, AJAX
+- Node.js, Express, RESTful API
 - MongoDB, Mongoose ORM
 - Redux, JSON Web Tokens
 - Heroku platform
