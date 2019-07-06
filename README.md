@@ -2,7 +2,7 @@
 
 ![prudent-pantry](images/prudent-pantry.png 'Prudent Pantry')
 
-The Prudent Pantry is a web applications that tracks the inventory of your household food items. When you are ready to make a meal, the app presents you with meal recipes prioritizing the items with short remaining shelf life. Your personal budget benefits, as the food waste is reduced, and so does the natural environment.
+The Prudent Pantry is a web application that tracks the inventory of your household food items. When you are ready to make a meal, the app presents you with meal recipes prioritizing the items with short remaining shelf life. Your personal budget benefits, as food waste is reduced, and so does the natural environment.
 
 ## Features
 
