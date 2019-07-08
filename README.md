@@ -1,5 +1,7 @@
 # Prudent Pantry
 
+by David LiaBraaten, Mohsen Shojaeifar, Robert Paruch & Tyler Jeffe
+
 ![prudent-pantry](images/prudent-pantry.png 'Prudent Pantry')
 
 The Prudent Pantry is a web application that tracks the inventory of your household food items. When you are ready to make a meal, the app presents you with meal recipes prioritizing the items with short remaining shelf life. Your personal budget benefits, as food waste is reduced, and so does the natural environment.
@@ -31,7 +33,14 @@ No installation is needed. Access the deployed website with a web browser throug
 
 ## Usage
 
-Follow the on-screen instructions. A typical session is shown below.
+Follow the on-screen instructions. Use the following login credentials to access the demo of the application
+
+```text
+email:    demo@demo.app
+password: demoapp
+```
+
+A typical session is shown below.
 
 ![usage](images/usage.gif 'Usage')
 
